@@ -42,5 +42,5 @@ export const AddressLine = ({
     addressLineEls.push(<span key={field}> {value}</span>);
   }
 
-  return <>{addressLineEls}</>;
+  return <div>{addressLineEls}</div>;
 };
