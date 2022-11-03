@@ -38,9 +38,9 @@
       "src/**"
     ],
     "moduleFileExtensions": [
+      "js",
       "ts",
-      "tsx",
-      "js"
+      "tsx"
     ],
     "moduleDirectories": [
       "node_modules",
