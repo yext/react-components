@@ -17,37 +17,47 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^26.0.24",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "@yext/eslint-config-slapshot": "^0.2.0",
     "@yext/eslint-plugin-export-star": "^1.0.2",
-    "babel-jest": "^27.0.6",
+    "@yext/types": "^0.1.10-alpha",
     "eslint": "^8.11.0",
-    "jest": "^27.0.6",
+    "jest": "^29.2.2",
+    "jest-environment-jsdom": "^29.2.2",
+    "ts-jest": "^29.0.3",
     "typescript": "^4.1.5"
   },
   "jest": {
     "bail": 0,
     "verbose": true,
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "src/**"
     ],
     "moduleFileExtensions": [
-      "ts"
+      "ts",
+      "tsx",
+      "js"
     ],
     "moduleDirectories": [
       "node_modules",
       "<rootDir>"
     ],
     "testMatch": [
-      "<rootDir>/tests/**/*.ts"
+      "<rootDir>/tests/**/*.test.ts?(x)"
     ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.esm.json"
-      }
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/__setup__/*",
+      "<rootDir>/tests/__fixtures__/*"
+    ],
+    "transform": {
+      "\\.[jt]sx?$": "ts-jest"
     }
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   }
 }
