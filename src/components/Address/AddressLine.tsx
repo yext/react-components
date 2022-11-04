@@ -1,46 +1,40 @@
 import Yext from '@yext/types';
-import { AddressPart } from './types';
+import { AddressFieldName } from './types';
 import { getUnabbreviated } from './methods';
 import { ReactElement } from 'react';
 
-export type AddressLineProps = {
+/**
+ * The shape of the data passed to {@link AddressLine}.
+ */
+export interface AddressLineProps {
+  /** The address field from Knowledge Graph. */
   address: Yext.Address,
-  line: AddressPart,
+  /** The format to display for the particular address line. */
+  line: AddressFieldName[],
+  /** Sets a custom separator. Defaults to a comma. */
   separator?: string
-};
+}
 
-export const AddressLine = ({
+export function AddressLine({
   address,
   line,
   separator,
-}: AddressLineProps) => {
-  const addressLineEls: ReactElement[] = [];
+}: AddressLineProps) {
+  const addressLineEls: ReactElement[] = line.map((fieldName, i) => {
+    const key = `${fieldName}-${i}`;
+    const value = fieldName === ',' ? separator : address[fieldName];
 
-  for (const field of line) {
-    if (field === ',') {
-      addressLineEls.push(<span key={field}>{separator}</span>);
-      continue;
-    }
-
-    const value = address[field];
     if (!value) {
-      continue;
+      return <></>;
     }
 
-    // Include unabbreviated tooltip if available
-    const unabbreviated = getUnabbreviated(field, address);
+    const unabbreviated = getUnabbreviated(fieldName, address);
     if (unabbreviated) {
-      addressLineEls.push(
-        <abbr key={field} title={unabbreviated}>
-          {' '}
-          {value}
-        </abbr>
-      );
-      continue;
+      return (<abbr key={key} title={unabbreviated}> {value}</abbr>);
     }
 
-    addressLineEls.push(<span key={field}> {value}</span>);
-  }
+    return (<span key={key}> {value}</span>);
+  });
 
   return <div>{addressLineEls}</div>;
-};
+}

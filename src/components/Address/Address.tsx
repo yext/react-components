@@ -1,12 +1,18 @@
 import React from 'react';
 import Yext from '@yext/types';
-import { AddressPart } from './types';
+import { AddressFieldName } from './types';
 import { AddressLine } from './AddressLine';
 import { localeAddressFormat } from './i18n';
 
+/**
+ * The shape of the data passed to {@link Address}
+ */
 export interface AddressProps extends React.HTMLProps<HTMLDivElement> {
+  /** The address field from Knowledge Graph. */
   address: Yext.Address,
-  lines?: AddressPart[],
+  /** Sets a custom format to display the address. */
+  lines?: AddressFieldName[][],
+  /** Sets a custom separator. Defaults to a comma. */
   separator?: string
 }
 
@@ -26,12 +32,12 @@ export interface AddressProps extends React.HTMLProps<HTMLDivElement> {
  *
  * @public
  */
-export const Address = ({
+export function Address({
   address,
   lines = localeAddressFormat(address.countryCode),
   separator = ',',
-  ...props
-}: AddressProps) => {
+  ...htmlProps
+}: AddressProps) {
   const renderedLines = lines.map(
     (line) => (
       <AddressLine
@@ -43,5 +49,5 @@ export const Address = ({
     )
   );
 
-  return <div {...props}>{renderedLines}</div>;
-};
+  return <div {...htmlProps}>{renderedLines}</div>;
+}

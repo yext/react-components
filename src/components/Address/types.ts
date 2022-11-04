@@ -1,3 +1,6 @@
 import Yext from '@yext/types';
 
-export type AddressPart = (keyof Yext.Address | ',')[];
+/**
+ * Field name option for a an address from Knowledge Graph
+ */
+export type AddressFieldName = keyof Yext.Address | ',';

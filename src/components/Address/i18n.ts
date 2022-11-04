@@ -1,6 +1,6 @@
-import { AddressPart } from './types';
+import { AddressFieldName } from './types';
 
-export function localeAddressFormat(locale: string): AddressPart[] {
+export function localeAddressFormat(locale: string): AddressFieldName[][] {
   switch (locale) {
     case 'AD':
     case 'AM':
