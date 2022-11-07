@@ -2,9 +2,11 @@ import { Address } from '@yext/types';
 import { AddressFieldName } from './types';
 
 /**
- * Get the unabbreviated version of a field if available
+ * Get the unabbreviated version of an address field if available
  *
  * getUnabbreviated('countryCode', address) returns 'United States'
+ * US to United States
+ * CA to California
  *
  * @param field - an address field name
  * @param address - a Yext address
