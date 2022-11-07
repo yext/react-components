@@ -12,7 +12,7 @@ export interface AddressLineProps {
   /** The format to display for the particular address line. */
   line: AddressFieldName[],
   /** Sets a custom separator. Defaults to a comma. */
-  separator?: string
+  separator: string
 }
 
 export function AddressLine({
@@ -20,21 +20,22 @@ export function AddressLine({
   line,
   separator,
 }: AddressLineProps) {
-  const addressLineEls: ReactElement[] = line.map((fieldName, i) => {
-    const key = `${fieldName}-${i}`;
-    const value = fieldName === ',' ? separator : address[fieldName];
+  const addressLineEls: ReactElement[] = line
+    .filter((fieldName) => fieldName === ',' || address[fieldName])
+    .map((fieldName, i) => {
+      if (fieldName === ',') {
+        return <>{separator}</>;
+      }
 
-    if (!value) {
-      return <></>;
-    }
+      const key = `${fieldName}-${i}`;
 
-    const unabbreviated = getUnabbreviated(fieldName, address);
-    if (unabbreviated) {
-      return (<abbr key={key} title={unabbreviated}> {value}</abbr>);
-    }
+      const unabbreviated = getUnabbreviated(fieldName, address);
+      if (unabbreviated) {
+        return (<abbr key={key} title={unabbreviated}> {address[fieldName]}</abbr>);
+      }
 
-    return (<span key={key}> {value}</span>);
-  });
+      return (<span key={key}> {address[fieldName]}</span>);
+    });
 
   return <div>{addressLineEls}</div>;
 }
