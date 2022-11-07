@@ -49,26 +49,4 @@ describe('Address', () => {
 
     expect(abbreviatedRegion).toEqual(fullRegion);
   });
-
-  it('properly renders a US address with a custom separator', () => {
-    const separator = '.';
-
-    render(<Address address={US_ADDRESS} separator={separator} />);
-
-    const separatorEl = screen.getAllByText(separator);
-    expect(separatorEl).toBeTruthy();
-  });
-
-  it('properly renders a single AddressPart', () => {
-    render(<Address address={US_ADDRESS} lines={[['line1']]} />);
-
-    const line1El = screen.getByText(US_ADDRESS.line1);
-    const cityEl = screen.queryByText(US_ADDRESS.city);
-    const regionEl = screen.queryByText('AL');
-    const postalEl = screen.queryByText(US_ADDRESS.postalCode);
-    const countryEl = screen.queryByText(US_ADDRESS.countryCode);
-
-    expect(line1El).toBeTruthy();
-    expect(cityEl && regionEl && postalEl && countryEl).toBeFalsy();
-  });
 });
