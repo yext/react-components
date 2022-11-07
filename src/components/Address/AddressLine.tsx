@@ -1,14 +1,14 @@
-import Yext from '@yext/types';
+import { ReactElement } from 'react';
+import { Address } from '@yext/types';
 import { AddressFieldName } from './types';
 import { getUnabbreviated } from './methods';
-import { ReactElement } from 'react';
 
 /**
  * The shape of the data passed to {@link AddressLine}.
  */
 export interface AddressLineProps {
   /** The address field from Knowledge Graph. */
-  address: Yext.Address,
+  address: Address,
   /** The format to display for the particular address line. */
   line: AddressFieldName[],
   /** Sets a custom separator. Defaults to a comma. */

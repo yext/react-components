@@ -1,5 +1,4 @@
-import React from 'react';
-import Yext from '@yext/types';
+import { Address } from '@yext/types';
 import { AddressFieldName } from './types';
 import { AddressLine } from './AddressLine';
 import { localeAddressFormat } from './i18n';
@@ -9,7 +8,7 @@ import { localeAddressFormat } from './i18n';
  */
 export interface AddressProps extends React.HTMLProps<HTMLDivElement> {
   /** The address field from Knowledge Graph. */
-  address: Yext.Address,
+  address: Address,
   /** Sets a custom format to display the address. */
   lines?: AddressFieldName[][],
   /** Sets a custom separator. Defaults to a comma. */

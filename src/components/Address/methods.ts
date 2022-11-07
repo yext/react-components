@@ -1,4 +1,4 @@
-import Yext from '@yext/types';
+import { Address } from '@yext/types';
 import { AddressFieldName } from './types';
 
 /**
@@ -12,7 +12,7 @@ import { AddressFieldName } from './types';
  */
 export function getUnabbreviated(
   field: AddressFieldName,
-  address: Yext.Address
+  address: Address
 ): string | undefined {
   const abbrFields: Record<string, AddressFieldName> = {
     region: 'localizedRegionName',
