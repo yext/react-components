@@ -5,7 +5,7 @@ import { localeAddressFormat } from './i18n';
 /**
  * The shape of the data passed to {@link Address}
  */
-export interface AddressProps extends React.HTMLProps<HTMLDivElement> {
+export interface AddressProps {
   /** The address field from Knowledge Graph. */
   address: Address
 }
@@ -33,7 +33,6 @@ export function Address({
         <AddressLine
           address={address}
           line={line}
-          separator={','}
           key={line.toString()}
         />
       )

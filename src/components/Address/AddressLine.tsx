@@ -10,24 +10,21 @@ export interface AddressLineProps {
   /** The address field from Knowledge Graph. */
   address: Address,
   /** The format to display for the particular address line. */
-  line: AddressFieldName[],
-  /** Sets a custom separator. Defaults to a comma. */
-  separator: string
+  line: AddressFieldName[]
 }
 
 export function AddressLine({
   address,
   line,
-  separator,
 }: AddressLineProps) {
   const addressLineEls: ReactElement[] = line
     .filter((fieldName) => fieldName === ',' || address[fieldName])
     .map((fieldName, i) => {
-      if (fieldName === ',') {
-        return <>{separator}</>;
-      }
-
       const key = `${fieldName}-${i}`;
+
+      if (fieldName === ',') {
+        return <span key={key}>,</span>;
+      }
 
       const unabbreviated = getUnabbreviated(fieldName, address);
       if (unabbreviated) {
@@ -37,5 +34,5 @@ export function AddressLine({
       return (<span key={key}> {address[fieldName]}</span>);
     });
 
-  return <div>{addressLineEls}</div>;
+  return (<div>{addressLineEls}</div>);
 }
