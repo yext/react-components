@@ -1,15 +1,24 @@
-const path = require('path');
 module.exports = {
-  "stories": [
+  stories: [
     "../tests/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    '@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-coverage',
+      options: {
+        istanbul: {
+          include: ['src/components/**']
+        }
+      }
+    },
   ],
-  "framework": {
-    "name": "@storybook/react-vite",
-    "options": {}
-  }
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  staticDirs: ['./public'],
 }

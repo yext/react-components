@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@yext/slapshot/typescript-react', 'plugin:storybook/recommended']
+  extends: ['@yext/eslint-config', 'plugin:storybook/recommended']
 };
