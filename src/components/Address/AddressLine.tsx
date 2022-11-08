@@ -13,10 +13,7 @@ export interface AddressLineProps {
   line: AddressFieldName[]
 }
 
-export function AddressLine({
-  address,
-  line,
-}: AddressLineProps) {
+export function AddressLine({ address, line }: AddressLineProps) {
   const addressLineEls: ReactElement[] = line
     .filter((fieldName) => fieldName === ',' || address[fieldName])
     .map((fieldName, i) => {

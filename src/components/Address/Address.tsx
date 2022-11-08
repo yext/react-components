@@ -24,9 +24,7 @@ export interface AddressProps {
  *
  * @public
  */
-export function Address({
-  address
-}: AddressProps) {
+export function Address({ address }: AddressProps) {
   const renderedLines = localeAddressFormat(address.countryCode)
     .map(
       (line) => (
