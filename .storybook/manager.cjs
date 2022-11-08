@@ -1,5 +1,5 @@
-const { addons } = require('@storybook/addons');
+const { addons } = require("@storybook/addons");
 
 addons.setConfig({
-  theme: require('./yextTheme.cjs')
+  theme: require("./yextTheme.cjs"),
 });

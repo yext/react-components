@@ -1,4 +1,4 @@
-import { runOnly } from './wcagConfig';
+import { runOnly } from "./wcagConfig";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,14 +10,12 @@ export const parameters = {
   },
   a11y: {
     options: {
-      runOnly
-    }
+      runOnly,
+    },
   },
   options: {
     storySort: {
-      order: [
-        'Address'
-      ],
+      order: ["Address"],
     },
   },
-}
+};
