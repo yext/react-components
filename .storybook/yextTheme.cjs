@@ -27,6 +27,6 @@ module.exports = create({
 
   // Brand logo
   brandTitle: "Yext Component Library",
-  brandUrl: "https://github.com/yext/search-ui-react",
+  brandUrl: "https://github.com/yext/react-components",
   brandImage: "./logo.png",
 });
