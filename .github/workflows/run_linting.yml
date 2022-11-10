@@ -4,6 +4,11 @@ on:
   pull_request:
     branches:
       - main
+  workflow_call:
+    lint_script:
+        required: false
+        type: string
+        default: npm run lint && npm run prettier-write
 
 jobs:
   linting:
