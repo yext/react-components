@@ -1,6 +1,6 @@
-import { Address } from '@yext/types';
+import { Address } from "@yext/types";
 
 /**
  * Field name option for a an address from Knowledge Graph
  */
-export type AddressFieldName = keyof Address | ',';
+export type AddressFieldName = keyof Address | ",";
