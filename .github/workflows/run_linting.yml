@@ -4,12 +4,9 @@ on:
   pull_request:
     branches:
       - main
-  workflow_call:
-    lint_script:
-        required: false
-        type: string
-        default: npm run lint && npm run prettier-write
 
 jobs:
   linting:
     uses: yext/slapshot-reusable-workflows/.github/workflows/run-linting.yml@v1
+    with:
+      lint_script: npm run lint && npm run prettier-check
