@@ -65,7 +65,9 @@
       "src/**"
     ],
     "moduleFileExtensions": [
-      "ts"
+      "js",
+      "ts",
+      "tsx"
     ],
     "moduleDirectories": [
       "node_modules",
