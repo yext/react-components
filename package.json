@@ -71,6 +71,7 @@
       "node_modules",
       "<rootDir>"
     ],
+    "testEnvironment": "jsdom",
     "testMatch": [
       "<rootDir>/tests/**/*.test.ts?(x)"
     ],
