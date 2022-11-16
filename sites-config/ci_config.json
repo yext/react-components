@@ -7,16 +7,16 @@
     ],
     "hbsTemplates": []
   },
-  "baseImageTag": "node-14",
   "dependencies": {
     "installDepsCmd": "echo $npm_config_auth && npm install",
-    "requiredFiles": [".nvmrc"]
+    "requiredFiles": ["package.json", "pnpm-lock.json", ".npmrc"]
   },
   "buildArtifacts": {
     "buildSetupCmd": "npm ci",
     "buildCmd": "npm run build-storybook"
   },
   "livePreview": {
-      "serveCmd": "npm run storybook -- -p 8080"
+    "serveSetupCmd": "(npm run build-storybook)",
+      "serveCmd": "(npm run storybook -- -p 8080)"
   }
 }
