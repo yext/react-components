@@ -22,6 +22,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
+    "@percy/cli": "^1.14.0",
+    "@percy/storybook": "^4.3.4",
     "@storybook/addon-a11y": "^6.5.13",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-coverage": "^0.0.2",
