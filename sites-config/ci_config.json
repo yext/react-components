@@ -7,16 +7,16 @@
     ],
     "hbsTemplates": []
   },
+  "baseImageTag": "node-14",
   "dependencies": {
-    "installDepsCmd": "npm install && echo && echo && echo && echo",
-    "requiredFiles": ["package.json", "package-lock.json", ".npmrc"]
+    "installDepsCmd": "echo $npm_config_auth && npm install",
+    "requiredFiles": [".nvmrc"]
   },
   "buildArtifacts": {
-      "build_setup_cmd": "",
-      "build_cmd": "npm run build-storybook"
+    "buildSetupCmd": "npm ci",
+    "buildCmd": "npm run build-storybook"
   },
   "livePreview": {
       "serveCmd": "npm run storybook -- -p 8080"
-  },
-  "watch_cmd": ""
+  }
 }
