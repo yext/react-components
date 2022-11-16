@@ -7,16 +7,17 @@
     ],
     "hbsTemplates": []
   },
-  "baseImageTag": "node-14",
+  "base_image_tag": "yextci/yextci-builder:stable",
   "dependencies": {
-    "installDepsCmd": "echo $npm_config_auth && npm install",
-    "requiredFiles": [".nvmrc"]
+    "installDepsCmd": "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc; npm install",
+    "requiredFiles": ["package.json"]
   },
   "buildArtifacts": {
-    "buildSetupCmd": "npm ci",
-    "buildCmd": "npm run build-storybook"
+      "build_setup_cmd": "",
+      "build_cmd": "npm run build-storybook"
   },
   "livePreview": {
       "serveCmd": "npm run storybook -- -p 8080"
-  }
+  },
+  "watch_cmd": ""
 }
