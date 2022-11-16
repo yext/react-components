@@ -9,6 +9,7 @@ jobs:
   call_percy_snapshots:
     uses: yext/slapshot-reusable-workflows/.github/workflows/percy_snapshots.yml@v1
     with:
-      snapshots_script_path: <PATH_TO_SNAPSHOTS_SCRIPT>
+      build_script: npm run build-storybook
+      percy_script: npx percy storybook ./storybook-static
     secrets:
       PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
