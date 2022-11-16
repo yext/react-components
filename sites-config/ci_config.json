@@ -9,7 +9,7 @@
   },
   "base_image_tag": "yextci/yextci-builder:stable",
   "dependencies": {
-    "installDepsCmd": "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc; npm install",
+    "installDepsCmd": "echo $npm_config_auth && npm install",
     "requiredFiles": ["package.json"]
   },
   "buildArtifacts": {
