@@ -1,7 +1,6 @@
-
 name: Percy Snapshots
 
-on: 
+on:
   push:
     branches-ignore: dev/*
   pull_request:
