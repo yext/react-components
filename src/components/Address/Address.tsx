@@ -1,13 +1,15 @@
-import { Address } from "@yext/types";
+import { Address as AddressType } from "@yext/types";
 import { AddressLine } from "./AddressLine";
 import { localeAddressFormat } from "./i18n";
 
 /**
  * The shape of the data passed to {@link Address}
+ *
+ * @public
  */
 export interface AddressProps {
   /** The address field from Knowledge Graph. */
-  address: Address;
+  address: AddressType;
 }
 
 /**
