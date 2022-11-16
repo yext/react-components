@@ -7,10 +7,9 @@
     ],
     "hbsTemplates": []
   },
-  "base_image_tag": "yextci/yextci-builder:stable",
   "dependencies": {
-    "installDepsCmd": "echo $npm_config_auth && npm install",
-    "requiredFiles": ["package.json"]
+    "installDepsCmd": "npm install && echo && echo && echo && echo",
+    "requiredFiles": ["package.json", "package-lock.json", ".npmrc"]
   },
   "buildArtifacts": {
       "build_setup_cmd": "",
