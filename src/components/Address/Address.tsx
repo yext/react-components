@@ -3,7 +3,7 @@ import { AddressLine } from "./AddressLine";
 import { localeAddressFormat } from "./i18n";
 
 /**
- * The shape of the data passed to {@link Address}
+ * The shape of the data passed to {@link Address}.
  *
  * @public
  */
