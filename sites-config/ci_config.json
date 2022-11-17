@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "installDepsCmd": "echo $npm_config_auth && npm install",
-    "requiredFiles": ["package.json", "pnpm-lock.json", ".npmrc"]
+    "requiredFiles": ["package.json", "pnpm-lock.json", ".npmrc", ".nvmrc"]
   },
   "buildArtifacts": {
     "buildSetupCmd": "npm ci",
