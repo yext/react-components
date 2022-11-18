@@ -1,5 +1,5 @@
 import { ComponentMeta, Story } from "@storybook/react";
-import { Address, AddressProps } from "../../src/components/test/Address";
+import { Address, AddressProps } from "../../src/components/address/Address";
 import { US_ADDRESS, BR_ADDRESS } from "../__fixtures__/km/address";
 
 const meta: ComponentMeta<typeof Address> = {
