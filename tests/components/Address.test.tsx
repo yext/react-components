@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Address } from "../../src/components/Address";
+import { Address } from "../../src/components/test";
 import { BR_ADDRESS, US_ADDRESS } from "../__fixtures__/km/address";
 
 describe("Address", () => {
