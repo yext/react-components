@@ -1,4 +1,4 @@
-import { runOnly } from "./wcagConfig";
+import { runOnly } from "./wcagConfig"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -18,4 +18,4 @@ export const parameters = {
       order: ["Address"],
     },
   },
-};
+}

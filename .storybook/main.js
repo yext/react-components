@@ -19,4 +19,4 @@ module.exports = {
     builder: "@storybook/builder-vite",
   },
   staticDirs: ["./public"],
-};
+}

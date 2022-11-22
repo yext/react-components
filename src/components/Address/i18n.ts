@@ -1,4 +1,4 @@
-import { AddressFieldName } from "./types";
+import { AddressFieldName } from "./types"
 
 export function localeAddressFormat(locale: string): AddressFieldName[][] {
   switch (locale) {
@@ -57,7 +57,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
     case "UY":
     case "VG":
     case "ZM":
-      return [["line1"], ["line2"], ["postalCode", "city"], ["countryCode"]];
+      return [["line1"], ["line2"], ["postalCode", "city"], ["countryCode"]]
     case "AF":
     case "IR":
       return [
@@ -67,7 +67,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["region"],
         ["postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "AG":
     case "AO":
     case "AW":
@@ -99,18 +99,18 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
     case "TT":
     case "UG":
     case "VU":
-      return [["line1"], ["line2"], ["city"], ["countryCode"]];
+      return [["line1"], ["line2"], ["city"], ["countryCode"]]
     case "AL":
     case "EE":
     case "IS":
-      return [["line1"], ["line2"], ["postalCode", "city"]];
+      return [["line1"], ["line2"], ["postalCode", "city"]]
     case "AR":
       return [
         ["line1"],
         ["line2"],
         ["postalCode", "city", ",", "region"],
         ["countryCode"],
-      ];
+      ]
     case "AS":
     case "BB":
     case "BD":
@@ -142,7 +142,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
     case "SG":
     case "VC":
     case "WS":
-      return [["line1"], ["line2"], ["city", "postalCode"], ["countryCode"]];
+      return [["line1"], ["line2"], ["city", "postalCode"], ["countryCode"]]
     case "AU":
     case "CA":
     case "SZ":
@@ -153,7 +153,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["city", ",", "region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "BE":
     case "PE":
       return [
@@ -161,7 +161,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["postalCode", "sublocality", "city"],
         ["countryCode"],
-      ];
+      ]
     case "BF":
     case "BI":
     case "BQ":
@@ -177,11 +177,11 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
     case "SY":
     case "TD":
     case "ZW":
-      return [["line1"], ["line2"], ["city"], ["region"], ["countryCode"]];
+      return [["line1"], ["line2"], ["city"], ["region"], ["countryCode"]]
     case "BG":
-      return [["line1"], ["postalCode", "region"], ["countryCode"]];
+      return [["line1"], ["postalCode", "region"], ["countryCode"]]
     case "BH":
-      return [["line1"], ["line2"], ["sublocality", "city"], ["countryCode"]];
+      return [["line1"], ["line2"], ["sublocality", "city"], ["countryCode"]]
     case "BR":
       return [
         ["line1"],
@@ -190,7 +190,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city", "region"],
         ["postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "CH":
     case "DE":
     case "GT":
@@ -206,7 +206,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["postalCode", "city", "region"],
         ["countryCode"],
-      ];
+      ]
     case "CL":
     case "PF":
       return [
@@ -214,14 +214,14 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["city", "postalCode", "region"],
         ["countryCode"],
-      ];
+      ]
     case "CN":
       return [
         ["region", "city", "sublocality"],
         ["line1"],
         ["line2"],
         ["countryCode"],
-      ];
+      ]
     case "CO":
     case "ID":
     case "IQ":
@@ -235,14 +235,14 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["city", "region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "EG":
       return [
         ["line1"],
         ["line2"],
         ["sublocality", "city", "region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "ES":
     case "IL":
       return [
@@ -251,7 +251,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city", "postalCode"],
         ["region"],
         ["countryCode"],
-      ];
+      ]
     case "GB":
     case "MN":
     case "ZA":
@@ -260,7 +260,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["line2"],
         ["sublocality", "city", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "GG":
     case "IM":
     case "JE":
@@ -271,9 +271,9 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city"],
         ["postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "GN":
-      return [["line1", "line2", "city"], ["countryCode"]];
+      return [["line1", "line2", "city"], ["countryCode"]]
     case "HK":
       return [
         ["line1"],
@@ -282,12 +282,12 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city"],
         ["region"],
         ["countryCode"],
-      ];
+      ]
     case "HR":
-      return [["line1"], ["postalCode", "city", "region"], ["countryCode"]];
+      return [["line1"], ["postalCode", "city", "region"], ["countryCode"]]
     case "HU":
     case "SI":
-      return [["postalCode", "city"], ["line1"], ["line2"], ["countryCode"]];
+      return [["postalCode", "city"], ["line1"], ["line2"], ["countryCode"]]
     case "IE":
       return [
         ["line1"],
@@ -295,7 +295,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["sublocality"],
         ["city", "region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "IN":
     case "VE":
       return [
@@ -304,7 +304,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city", "postalCode"],
         ["region"],
         ["countryCode"],
-      ];
+      ]
     case "JP":
       return [
         ["line2"],
@@ -312,26 +312,26 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city", "region"],
         ["postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "KR":
       return [
         ["countryCode"],
         ["region", "city", "sublocality", "line1"],
         ["line2"],
         ["postalCode"],
-      ];
+      ]
     case "KY":
-      return [["line1"], ["line2"], ["postalCode"], ["countryCode"]];
+      return [["line1"], ["line2"], ["postalCode"], ["countryCode"]]
     case "LT":
       return [
         ["line1"],
         ["postalCode", "city", "sublocality", "region"],
         ["countryCode"],
-      ];
+      ]
     case "LV":
-      return [["line1"], ["city", ",", "postalCode"], ["countryCode"]];
+      return [["line1"], ["city", ",", "postalCode"], ["countryCode"]]
     case "MO":
-      return [["line1"], ["line2"], ["sublocality"], ["city"], ["countryCode"]];
+      return [["line1"], ["line2"], ["sublocality"], ["city"], ["countryCode"]]
     case "MU":
       return [
         ["line1"],
@@ -339,7 +339,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city"],
         ["region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "MX":
       return [
         ["line1"],
@@ -347,7 +347,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["sublocality"],
         ["postalCode", "city", ",", "region"],
         ["countryCode"],
-      ];
+      ]
     case "NE":
     case "SD":
       return [
@@ -357,7 +357,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city"],
         ["region"],
         ["countryCode"],
-      ];
+      ]
     case "NZ":
       return [
         ["line1"],
@@ -366,7 +366,7 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["city"],
         ["postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "PH":
     case "TW":
     case "VN":
@@ -376,16 +376,16 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["sublocality", "city"],
         ["region", "postalCode"],
         ["countryCode"],
-      ];
+      ]
     case "RU":
-      return [["line1"], ["line2"], ["city"], ["postalCode"], ["countryCode"]];
+      return [["line1"], ["line2"], ["city"], ["postalCode"], ["countryCode"]]
     case "SB":
     case "SL":
     case "ST":
     case "TL":
     case "TO":
     case "TV":
-      return [["line1"], ["line2"], ["city", ",", "region"], ["countryCode"]];
+      return [["line1"], ["line2"], ["city", ",", "region"], ["countryCode"]]
     case "TH":
     case "TR":
       return [
@@ -394,14 +394,10 @@ export function localeAddressFormat(locale: string): AddressFieldName[][] {
         ["sublocality"],
         ["postalCode", "city"],
         ["countryCode"],
-      ];
+      ]
     case "UZ":
-      return [["line1"], ["line2"], ["region", "postalCode"], ["countryCode"]];
+      return [["line1"], ["line2"], ["region", "postalCode"], ["countryCode"]]
   }
 
-  return [
-    ["line1", "line2"],
-    ["city", "region", "postalCode"],
-    ["countryCode"],
-  ];
+  return [["line1", "line2"], ["city", "region", "postalCode"], ["countryCode"]]
 }
