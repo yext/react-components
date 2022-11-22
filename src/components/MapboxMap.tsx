@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect } from "react";
 import mapboxgl, {
   Map,
   Marker,
@@ -6,10 +6,10 @@ import mapboxgl, {
   LngLatBounds,
   MarkerOptions,
   LngLat,
-} from "mapbox-gl"
-import { useDebouncedFunction } from "../hooks/useDebouncedFunction"
-import ReactDOM from "react-dom"
-import { Coordinate } from "@yext/types"
+} from "mapbox-gl";
+import { useDebouncedFunction } from "../hooks/useDebouncedFunction";
+import ReactDOM from "react-dom";
+import { Coordinate } from "@yext/types";
 
 /**
  * A functional component that can be used to render a custom marker on the map.
@@ -17,17 +17,17 @@ import { Coordinate } from "@yext/types"
  * @public
  */
 export type PinComponent = (props: {
-  index: number
-  mapbox: Map
-  coordinate: Coordinate
-}) => JSX.Element
+  index: number;
+  mapbox: Map;
+  coordinate: Coordinate;
+}) => JSX.Element;
 
 /**
  * A function which is called when the user drags the map.
  *
  * @public
  */
-export type OnDragHandler = (center: LngLat, bounds: LngLatBounds) => void
+export type OnDragHandler = (center: LngLat, bounds: LngLatBounds) => void;
 
 /**
  * Props for the {@link MapboxMap} component.
@@ -36,18 +36,18 @@ export type OnDragHandler = (center: LngLat, bounds: LngLatBounds) => void
  */
 export interface MapboxMapProps {
   /** Mapbox access token. */
-  mapboxAccessToken: string
+  mapboxAccessToken: string;
   /** The list of coordinates for the markers to be displayed. */
-  markerLocations: Coordinate[]
+  markerLocations: Coordinate[];
   /** Interface for map customization derived from Mapbox GL's Map options. */
-  mapboxOptions?: Omit<MapboxOptions, "container">
+  mapboxOptions?: Omit<MapboxOptions, "container">;
   /**
    * Custom Pin component to render markers on the map. By default, the built-in marker
    * image from Mapbox GL is used.
    */
-  PinComponent?: PinComponent
+  PinComponent?: PinComponent;
   /** {@inheritDoc OnDragHandler} */
-  onDrag?: OnDragHandler
+  onDrag?: OnDragHandler;
 }
 
 /**
@@ -77,14 +77,14 @@ export function MapboxMap({
   onDrag,
 }: MapboxMapProps) {
   useEffect(() => {
-    mapboxgl.accessToken = mapboxAccessToken
-  }, [mapboxAccessToken])
+    mapboxgl.accessToken = mapboxAccessToken;
+  }, [mapboxAccessToken]);
 
-  const mapContainer = useRef<HTMLDivElement>(null)
-  const map = useRef<Map | null>(null)
-  const markers = useRef<Marker[]>([])
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<Map | null>(null);
+  const markers = useRef<Marker[]>([]);
 
-  const onDragDebounced = useDebouncedFunction(onDrag, 100)
+  const onDragDebounced = useDebouncedFunction(onDrag, 100);
 
   useEffect(() => {
     if (mapContainer.current && !map.current) {
@@ -94,28 +94,28 @@ export function MapboxMap({
         center: [-74.005371, 40.741611],
         zoom: 9,
         ...mapboxOptions,
-      }
-      map.current = new Map(options)
-      const mapbox = map.current
-      mapbox.resize()
+      };
+      map.current = new Map(options);
+      const mapbox = map.current;
+      mapbox.resize();
       if (onDragDebounced) {
         mapbox.on("drag", () => {
-          onDragDebounced(mapbox.getCenter(), mapbox.getBounds())
-        })
+          onDragDebounced(mapbox.getCenter(), mapbox.getBounds());
+        });
       }
     }
-  }, [mapboxOptions, onDragDebounced])
+  }, [mapboxOptions, onDragDebounced]);
 
   useEffect(() => {
-    markers.current.forEach(marker => marker.remove())
-    markers.current = []
-    const mapbox = map.current
+    markers.current.forEach((marker) => marker.remove());
+    markers.current = [];
+    const mapbox = map.current;
     if (mapbox && markerLocations.length > 0) {
-      const bounds = new LngLatBounds()
+      const bounds = new LngLatBounds();
       markerLocations.forEach((markerLocation, i) => {
-        const { latitude, longitude } = markerLocation
-        const el = document.createElement("div")
-        const markerOptions: MarkerOptions = {}
+        const { latitude, longitude } = markerLocation;
+        const el = document.createElement("div");
+        const markerOptions: MarkerOptions = {};
         if (PinComponent) {
           ReactDOM.render(
             <PinComponent
@@ -124,24 +124,24 @@ export function MapboxMap({
               coordinate={markerLocation}
             />,
             el
-          )
-          markerOptions.element = el
+          );
+          markerOptions.element = el;
         }
         const marker = new Marker(markerOptions)
           .setLngLat({ lat: latitude, lng: longitude })
-          .addTo(mapbox)
-        markers.current.push(marker)
-        bounds.extend([longitude, latitude])
-      })
+          .addTo(mapbox);
+        markers.current.push(marker);
+        bounds.extend([longitude, latitude]);
+      });
 
       if (!bounds.isEmpty()) {
         mapbox.fitBounds(bounds, {
           padding: { top: 50, bottom: 50, left: 50, right: 50 },
           maxZoom: 15,
-        })
+        });
       }
     }
-  }, [PinComponent, markerLocations])
+  }, [PinComponent, markerLocations]);
 
-  return <div ref={mapContainer} />
+  return <div ref={mapContainer} />;
 }

@@ -1,5 +1,5 @@
-import { Address } from "@yext/types"
-import { AddressFieldName } from "./types"
+import { Address } from "@yext/types";
+import { AddressFieldName } from "./types";
 
 /**
  * Get the unabbreviated version of an address field if available
@@ -19,9 +19,9 @@ export function getUnabbreviated(
   const abbrFields: Record<string, AddressFieldName> = {
     region: "localizedRegionName",
     countryCode: "localizedCountryName",
-  }
+  };
 
-  const unabbreviatedField = abbrFields[field]
+  const unabbreviatedField = abbrFields[field];
 
-  return unabbreviatedField && address[unabbreviatedField]
+  return unabbreviatedField && address[unabbreviatedField];
 }

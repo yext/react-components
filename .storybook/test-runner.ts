@@ -1,6 +1,6 @@
-import { injectAxe, checkA11y } from "axe-playwright"
-import { Page } from "playwright-core"
-import { runOnly } from "./wcagConfig"
+import { injectAxe, checkA11y } from "axe-playwright";
+import { Page } from "playwright-core";
+import { runOnly } from "./wcagConfig";
 
 /**
  * See https://storybook.js.org/docs/react/writing-tests/test-runner#test-hook-api-experimental
@@ -8,7 +8,7 @@ import { runOnly } from "./wcagConfig"
  */
 const renderFunctions = {
   async preRender(page: Page) {
-    await injectAxe(page)
+    await injectAxe(page);
   },
   async postRender(page: Page, context) {
     await checkA11y(page, "#root", {
@@ -22,8 +22,8 @@ const renderFunctions = {
       detailedReportOptions: {
         html: true,
       },
-    })
+    });
   },
-}
+};
 
-export default renderFunctions
+export default renderFunctions;

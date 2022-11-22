@@ -1,4 +1,4 @@
-const { create } = require("@storybook/theming")
+const { create } = require("@storybook/theming");
 
 module.exports = create({
   base: "light",
@@ -29,4 +29,4 @@ module.exports = create({
   brandTitle: "Yext Component Library",
   brandUrl: "https://github.com/yext/react-components",
   brandImage: "./logo.png",
-})
+});

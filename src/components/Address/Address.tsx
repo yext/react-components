@@ -1,6 +1,6 @@
-import { Address as AddressType } from "@yext/types"
-import { AddressLine } from "./AddressLine"
-import { localeAddressFormat } from "./i18n"
+import { Address as AddressType } from "@yext/types";
+import { AddressLine } from "./AddressLine";
+import { localeAddressFormat } from "./i18n";
 
 /**
  * The shape of the data passed to {@link Address}.
@@ -9,7 +9,7 @@ import { localeAddressFormat } from "./i18n"
  */
 export interface AddressProps {
   /** The address field from Knowledge Graph. */
-  address: AddressType
+  address: AddressType;
 }
 
 /**
@@ -27,9 +27,9 @@ export interface AddressProps {
  * @public
  */
 export function Address({ address }: AddressProps) {
-  const renderedLines = localeAddressFormat(address.countryCode).map(line => (
+  const renderedLines = localeAddressFormat(address.countryCode).map((line) => (
     <AddressLine address={address} line={line} key={line.toString()} />
-  ))
+  ));
 
-  return <div>{renderedLines}</div>
+  return <div>{renderedLines}</div>;
 }
