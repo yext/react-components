@@ -16,27 +16,25 @@ export type ThumbnailType = {
  *
  * @public
  */
-export type ComplexImageType = {
-  image: {
-    alternateText?: string;
-    height: number;
-    width: number;
-    url: string;
-    thumbnails?: ThumbnailType[];
-  };
-};
+export interface ComplexImageType {
+  image: ImageType;
+  details?: string;
+  description?: string;
+  clickthroughUrl?: string;
+}
 
 /**
  * The type definition for an image.
  *
  * @public
  */
-export type ImageType = {
-  alternateText?: string;
-  height: number;
-  width: number;
+export interface ImageType {
   url: string;
-};
+  width: number;
+  height: number;
+  thumbnails?: ThumbnailType[];
+  alternateText?: string;
+}
 
 /**
  * Layout option on the {@link Image} component.
