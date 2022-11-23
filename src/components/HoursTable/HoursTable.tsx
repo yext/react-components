@@ -7,9 +7,9 @@ export interface HoursTableProps {
 
 function HoursTable(props: HoursTableProps) {
   return (
-    <>
+    <div>
       {props.children}
-    </>
+    </div>
   );
 }
 

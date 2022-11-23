@@ -1,10 +1,11 @@
 import { DayOfWeek } from "./types";
+import { toCapitalCase } from "./utils";
 
 export interface HoursTableDayProps {
-  label?: string;
+  label?: React.ReactNode;
   dayOfWeek: DayOfWeek;
   isClosed?: boolean;
-  closedMessage?: React.ReactElement;
+  closedMessage?: React.ReactNode;
   children: React.ReactChild | React.ReactChild[];
 }
 
@@ -13,7 +14,7 @@ export default function HoursTableDay(props: HoursTableDayProps) {
     ? props.closedMessage
     : props.children;
 
-  const label = props.label || props.dayOfWeek;
+  const label = props.label || toCapitalCase(props.dayOfWeek);
 
   return (
     <>

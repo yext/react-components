@@ -1,36 +1,22 @@
+import { format, parseTime } from "./utils";
+
 export interface HoursTableIntervalProps {
   start?: string;
   end?: string;
-  toLocaleDateString: [
+  toLocaleTimeString?: [
     Intl.LocalesArgument,
     Intl.DateTimeFormatOptions
-  ]
+  ];
+  format?: string;
 }
 
-export default function HoursTableInterval(props: IntervalProps) {
-  const parseTime = (yextTime: string | undefined): string => {
-    const [hour, minute] = validTime(yextTime).split(":");
-    const date = new Date();
-    date.setHours(Number(hour));
-    date.setMinutes(Number(minute));
-
-    return date.toLocaleTimeString(...props.toLocaleDateString);
-  }
-
-  const validTime = (yextTime?: string | undefined): string => {
-    if (!yextTime && !yextTime?.includes(":")) {
-      throw new Error("Not a valid time format, must be XX:XX.");
-    }
-
-    return yextTime;
-  }
-
-  const start = parseTime(props.start);
-  const end = parseTime(props.end);
+export default function HoursTableInterval(props: HoursTableIntervalProps) {
+  const start = parseTime(props.start, props.toLocaleTimeString);
+  const end = parseTime(props.end, props.toLocaleTimeString);
 
   return (
-    <span>
-      {start} - {end}
-    </span>
+    <div>
+      {props.format ? format(props.format, start, end) : `${start} – ${end}`}
+    </div>
   )
 }

@@ -29,52 +29,51 @@ export const Primary: Story<HoursTableProps> = () => {
       <HoursTable.Day dayOfWeek="tuesday">
         <HoursTable.Interval
           {...getInterval("tuesday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
-        ,{" "}
         <HoursTable.Interval
           {...getInterval("tuesday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="wednesday">
         <HoursTable.Interval
-          {...getInterval("wednesday")} toLocaleDateString={timeFormat}
+          {...getInterval("wednesday")} toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day
         label="Thanksgiving"
         dayOfWeek="thursday"
         isClosed={true}
-        closedMessage={<>Closed For Thanksgiving</>}
+        closedMessage="Closed For Thanksgiving"
       >
         <HoursTable.Interval
           {...getInterval("thursday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="friday">
         <HoursTable.Interval
           {...getInterval("friday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="saturday">
         <HoursTable.Interval
           {...getInterval("saturday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="sunday">
         <HoursTable.Interval
           {...getInterval("sunday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="monday">
         <HoursTable.Interval
           {...getInterval("monday")}
-          toLocaleDateString={timeFormat}
+          toLocaleTimeString={timeFormat}
         />
       </HoursTable.Day>
     </HoursTable>
@@ -108,5 +107,6 @@ export const HoursTableInterval: Story<HoursTableIntervalProps> = (args) => {
 HoursTableInterval.args = {
   start: "9:00",
   end: "18:00",
-  toLocaleDateString: ['en-us', { hour: "numeric", minute: "numeric" }]
+  toLocaleDateString: ['en-us', { hour: "numeric", minute: "numeric" }],
+  format: 'From {0} to {1}.'
 };
