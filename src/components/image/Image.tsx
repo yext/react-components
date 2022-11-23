@@ -40,7 +40,7 @@ export function Image({
   return (
     <>
       {!isImageLoaded && placeholder != null && placeholder}
-      <img ref={imgRef} {...imgHtmlAttributes} {...imgOverrides} />
+      <img ref={imgRef} alt='' {...imgHtmlAttributes} {...imgOverrides} />
     </>
   );
 }

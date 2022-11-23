@@ -112,7 +112,7 @@ describe("Image", () => {
       <Image
         image={{
           ...simpleImage,
-          url: "https://a.mktgcdn.com/p-sandbox/${imgUUID}/2x1.jpg",
+          url: "https://a.mktgcdn.com/p-sandbox/some-uuid/2x1.jpg",
         }}
       />
     );
@@ -142,7 +142,6 @@ describe("Image", () => {
         className="test-classname"
       />
     );
-    screen.getByRole("img").className;
     expect(screen.getByRole("img").style.objectFit).toEqual(overrideObjectFit);
     expect(screen.getByRole("img")).toHaveProperty("src", overrideSrc);
     expect(screen.getByRole("img").className).toEqual("test-classname");

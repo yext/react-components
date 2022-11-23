@@ -131,7 +131,7 @@ function getLayoutAttributes(
   const attributes: ImgHTMLAttributes<HTMLImageElement> = {};
   switch (layout) {
     case undefined:
-    // If layout is not defined, default to ImageLayout.INTRINSIC
+    // If layout is not defined, default to ImageLayout.INTRINSIC (fall through)
     case ImageLayout.INTRINSIC:
       // Don't let image be wider than its intrinsic width
       style.maxWidth = imgWidth;
