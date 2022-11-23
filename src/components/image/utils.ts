@@ -186,7 +186,7 @@ export function getImgHTMLAttributes(
 ): ImgHTMLAttributes<HTMLImageElement> | null {
   const {
     className,
-    style: styleConfig,
+    style: configuredStyle,
     image,
     loading = ImageLoadState.LAZY,
     ...layoutAttributesConfig
@@ -218,7 +218,7 @@ export function getImgHTMLAttributes(
     className,
     style: {
       ...defaultImageStyle,
-      ...styleConfig,
+      ...configuredStyle,
       ...layoutStyle,
     },
     ...otherLayoutAttributes,
