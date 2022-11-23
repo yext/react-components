@@ -1,9 +1,9 @@
 import { ComponentMeta, Story } from "@storybook/react";
 import { OpenIntervals } from "@yext/types";
-import { HoursTable, HoursTableProps } from "../../src/components/HoursTable/HoursTable";
-import { HoursTableDayProps } from "../../src/components/HoursTable/HoursTableDay";
-import { HoursTableIntervalProps } from "../../src/components/HoursTable/HoursTableInterval";
-import { DayOfWeek } from "../../src/components/HoursTable/types";
+import { HoursTable, HoursTableProps } from "../../src/components/hoursTable/HoursTable";
+import { HoursTableDayProps } from "../../src/components/hoursTable/HoursTableDay";
+import { HoursTableIntervalProps } from "../../src/components/hoursTable/HoursTableInterval";
+import { DayOfWeek } from "../../src/components/hoursTable/types";
 import { HOURS } from "../__fixtures__/km/hours";
 
 const meta: ComponentMeta<typeof HoursTable> = {

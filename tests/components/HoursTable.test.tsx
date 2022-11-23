@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { HoursTable } from "../../src/components/HoursTable";
-import { format, parseTime } from "../../src/components/HoursTable/utils";
+import { HoursTable } from "../../src/components/hoursTable";
+import { format, parseTime } from "../../src/components/hoursTable/utils";
 
 describe("HoursTable", () => {
   it("properly wraps HoursTable.Day", () => {
