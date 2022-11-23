@@ -61,18 +61,6 @@ export enum ImageLayout {
 }
 
 /**
- * Image load state option on the {@link Image} component.
- *
- * @public
- */
-export enum ImageLoadState {
-  /** TODO */
-  EAGER = "eager",
-  /** TODO */
-  LAZY = "lazy",
-}
-
-/**
  * The shape of the data passed to {@link Image}.
  */
 interface BaseImageProps {
@@ -87,7 +75,7 @@ interface BaseImageProps {
   /** The pass through style of the underlying img tag. */
   style?: React.CSSProperties;
   /** Set the loading state of the image. */
-  loading?: EnumOrLiteral<ImageLoadState>;
+  loading?: "eager" | "lazy";
 }
 
 /**

@@ -1,7 +1,6 @@
 import React, { ImgHTMLAttributes } from "react";
 import {
   ImageLayout,
-  ImageLoadState,
   ImgHtmlAttributesConfig,
   LayoutAttributesConfig,
 } from "./types";
@@ -188,7 +187,7 @@ export function getImgHTMLAttributes(
     className,
     style: configuredStyle,
     image,
-    loading = ImageLoadState.LAZY,
+    loading = "lazy",
     ...layoutAttributesConfig
   } = args;
   const {
