@@ -5,12 +5,12 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['**/*.{test,stories}.*'],
+      files: ["**/*.{test,stories}.*"],
       rules: {
-        'react-perf/jsx-no-new-array-as-prop': 'off',
-        'react-perf/jsx-no-new-function-as-prop': 'off',
-        'react-perf/jsx-no-new-object-as-prop': 'off'
-      }
-    }
-  ]
+        "react-perf/jsx-no-new-array-as-prop": "off",
+        "react-perf/jsx-no-new-function-as-prop": "off",
+        "react-perf/jsx-no-new-object-as-prop": "off",
+      },
+    },
+  ],
 };
