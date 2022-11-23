@@ -1,2 +1,2 @@
 export { Image } from "./Image";
-export * from "./types.js";
+export { ImageProps } from "./types";

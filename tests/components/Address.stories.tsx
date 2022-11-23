@@ -6,21 +6,16 @@ const meta: ComponentMeta<typeof Address> = {
   title: "Address",
   component: Address,
 };
-
 export default meta;
 
 export const Primary: Story<AddressProps> = (args) => {
   return <Address {...args} />;
 };
-
 Primary.args = {
   address: US_ADDRESS,
 };
 
-export const Brazil: Story<AddressProps> = (args) => {
-  return <Address {...args} />;
-};
-
+export const Brazil: Story<AddressProps> = Primary.bind({});
 Brazil.args = {
   address: BR_ADDRESS,
 };
