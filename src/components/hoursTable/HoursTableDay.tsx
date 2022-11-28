@@ -5,13 +5,13 @@ import { toCapitalCase } from "./utils";
  * The shape of the data passed to {@link HoursTableDay}.
  */
 export interface HoursTableDayProps {
-  /** Set a custom label for the day of week */
+  /** Set a custom label for the day of week. */
   label?: React.ReactNode;
-  /** The day of the week to fetch hours for */
+  /** The day of the week to fetch hours for. */
   dayOfWeek: DayOfWeek;
-  /** If marked closed for the day */
+  /** If marked closed for the day. */
   isClosed?: boolean;
-  /** Set a custom message for the hours of operation for a particular day */
+  /** Set a custom message for the hours of operation for a particular day. */
   closedMessage?: React.ReactNode;
   children: React.ReactChild | React.ReactChild[];
 }
@@ -21,7 +21,7 @@ export interface HoursTableDayProps {
  * 
  * @public 
  */
-export default function HoursTableDay(props: HoursTableDayProps) {
+export default function HoursTableDay(props: HoursTableDayProps): JSX.Element {
   const status = props.isClosed
     ? props.closedMessage
     : props.children;

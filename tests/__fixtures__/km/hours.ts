@@ -33,30 +33,7 @@ export const HOURS: Hours = {
 };
 
 export const HOURS_WITH_HOLIDAY: Hours = {
-  monday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:01", end: "18:01" }],
-  },
-  tuesday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:02", end: "18:02" }],
-  },
-  wednesday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:03", end: "18:03" }],
-  },
-  thursday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:04", end: "18:04" }],
-  },
-  friday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:05", end: "18:05" }],
-  },
-  saturday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:06", end: "18:06" }],
-  },
+  ...HOURS,
   sunday: {
     isClosed: false,
     openIntervals: [
@@ -74,34 +51,7 @@ export const HOURS_WITH_HOLIDAY: Hours = {
 };
 
 export const HOURS_WITH_REOPEN_DATE: Hours = {
-  monday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:01", end: "18:01" }],
-  },
-  tuesday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:02", end: "18:02" }],
-  },
-  wednesday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:03", end: "18:03" }],
-  },
-  thursday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:04", end: "18:04" }],
-  },
-  friday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:05", end: "18:05" }],
-  },
-  saturday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:06", end: "18:06" }],
-  },
-  sunday: {
-    isClosed: false,
-    openIntervals: [{ start: "9:07", end: "18:07" }],
-  },
+  ...HOURS,
   reopenDate: dateInFuture(3),
 };
 

@@ -5,23 +5,26 @@ import { LocalizeTime } from "./types";
  * The shape of the data passed to {@link HoursTableInterval}.
  */
 export interface HoursTableIntervalProps {
-  /** starting time (in HH:MM format) */
+  /** Starting time (in HH:MM format). */
   start?: string;
-  /** end time (in HH:MM format) */
+  /** End time (in HH:MM format). */
   end?: string;
-  /** A pass through object to configure the localized time format */
+  /** A pass through object to configure the localized time . */
   localize?: LocalizeTime
-  /** Customize the message format (use {0} for starting time and {1} for end time) */
+  /**
+   * Customize the message format (use {0} for starting time and {1} for end time).
+   * Example: 'From {0} to {1}'.
+   */
   format?: string;
 }
 
 /**
  * A sub component of {@link HoursTable} that renders a continuous period of time that a
- * location may be open, based from the Yext Knowledge Graph.
+ * location may be open, based on the Yext Knowledge Graph.
  * 
  * @public 
  */
-export default function HoursTableInterval(props: HoursTableIntervalProps) {
+export default function HoursTableInterval(props: HoursTableIntervalProps): JSX.Element {
   const start = parseTime(props.start, props.localize);
   const end = parseTime(props.end, props.localize);
 

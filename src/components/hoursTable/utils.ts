@@ -7,7 +7,7 @@ const DEFAULT_TO_LOCALE_TIME_STRING: LocalizeTime = {
 
 export function parseTime(yextTime: string | undefined, localize = DEFAULT_TO_LOCALE_TIME_STRING): string {
   if (!yextTime?.includes(":")) {
-    console.error(`Invalid time format, must be 'HH:MM`);
+    console.error("Invalid time format, must be 'HH:MM'");
     return "";
   }
 

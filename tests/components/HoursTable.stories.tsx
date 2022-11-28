@@ -87,7 +87,6 @@ export const HoursTableDay: Story<HoursTableDayProps> = (args) => {
     </HoursTable.Day>
   )
 };
-
 HoursTableDay.args = {
   dayOfWeek: "monday",
   isClosed: false,
@@ -99,7 +98,6 @@ export const HoursTableInterval: Story<HoursTableIntervalProps> = (args) => {
     <HoursTable.Interval {...args} />
   )
 };
-
 HoursTableInterval.args = {
   start: "9:00",
   end: "18:00",
