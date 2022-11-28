@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { HoursTable } from "../../src/components/hoursTable";
-import { format, parseTime } from "../../src/components/hoursTable/utils";
+import { format, parseTime, toCapitalCase } from "../../src/components/hoursTable/utils";
 
 describe("HoursTable", () => {
   it("properly wraps HoursTable.Day", () => {
@@ -151,4 +151,22 @@ describe("parseTime", () => {
 
     expect(actual).toBe(expected);
   });
+
+  it("throws an error when trying to parse an invalid Yext time", () => {
+    const logMock = jest.spyOn(console, "error").mockImplementation();
+
+    expect(logMock).not.toBeCalled();
+    parseTime("invalidTime");
+    expect(logMock).toBeCalledTimes(1);
+    expect(logMock).toBeCalledWith("Invalid time format, must be 'HH:MM'");
+  })
 });
+
+describe("toCapitalCase", () => {
+  it("capitalizes the first character in a string", () => {
+    const actual = toCapitalCase("yext");
+    const expected = "Yext";
+
+    expect(actual).toBe(expected);
+  })
+})
