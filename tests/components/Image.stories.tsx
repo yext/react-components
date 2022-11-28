@@ -1,19 +1,12 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Image } from "../../src/components/image/Image";
-import { ComplexImageType } from "../../src/components/image/types";
+import { ComplexImage } from "@yext/types";
 
-const image: ComplexImageType = {
+const image: ComplexImage = {
   image: {
     url: "https://a.mktgcdn.com/p/xMc2BbiWF73cnpOmEs8XNtkl2lljOlwrbeI4G3T6vn4/450x450.jpg",
     width: 450,
     height: 450,
-    thumbnails: [
-      {
-        url: "https://a.mktgcdn.com/p/xMc2BbiWF73cnpOmEs8XNtkl2lljOlwrbeI4G3T6vn4/450x450.jpg",
-        width: 450,
-        height: 450,
-      },
-    ],
   },
 };
 

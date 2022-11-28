@@ -1,9 +1,9 @@
 import { Image } from "../../src/components/image/Image";
+import { ImageLayout } from "../../src/components/image/types";
 import {
-  ComplexImageType,
-  ImageLayout,
-  ImageType,
-} from "../../src/components/image/types";
+  ComplexImage as ComplexImageType,
+  Image as ImageType,
+} from "@yext/types";
 import { render, screen } from "@testing-library/react";
 import {
   getImageUUID,

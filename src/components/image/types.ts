@@ -1,40 +1,8 @@
 import { DistributiveOmit, EnumOrLiteral } from "../utils";
-
-/**
- * The type definition for a thumbnail.
- *
- * @public
- */
-export type ThumbnailType = {
-  height: number;
-  width: number;
-  url: string;
-};
-
-/**
- * The type definition for a complex image.
- *
- * @public
- */
-export interface ComplexImageType {
-  image: ImageType;
-  details?: string;
-  description?: string;
-  clickthroughUrl?: string;
-}
-
-/**
- * The type definition for an image.
- *
- * @public
- */
-export interface ImageType {
-  url: string;
-  width: number;
-  height: number;
-  thumbnails?: ThumbnailType[];
-  alternateText?: string;
-}
+import {
+  ComplexImage as ComplexImageType,
+  Image as ImageType,
+} from "@yext/types";
 
 /**
  * Layout option on the {@link Image} component.
