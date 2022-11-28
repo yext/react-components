@@ -100,7 +100,10 @@ describe("HoursTable.Interval", () => {
       <HoursTable.Interval
         start="9:00"
         end="18:00"
-        toLocaleTimeString={['en-us', { hour: "numeric", minute: "numeric", hour12: false}]}
+        localize={{
+          locales: 'en-us',
+          options: { hour: "numeric", minute: "numeric", hour12: false }
+        }}
       />
     );
 
@@ -143,7 +146,7 @@ describe("parseTime", () => {
   });
 
   it("returns a custom JS localized time string", () => {
-    const actual = parseTime("18:00", ['en-us', { hour12: false, hour: 'numeric', minute: 'numeric' }]);
+    const actual = parseTime("18:00", { locales: 'en-us', options: { hour12: false, hour: 'numeric', minute: 'numeric' }});
     const expected = "18:00";
 
     expect(actual).toBe(expected);
