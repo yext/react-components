@@ -13,7 +13,6 @@ export interface HoursTableDayProps {
   isClosed?: boolean;
   /** Set a custom message for the hours of operation for a particular day. */
   closedMessage?: React.ReactNode;
-  children: React.ReactChild | React.ReactChild[];
 }
 
 /**
@@ -21,7 +20,7 @@ export interface HoursTableDayProps {
  * 
  * @public 
  */
-export default function HoursTableDay(props: HoursTableDayProps): JSX.Element {
+export default function HoursTableDay(props: React.PropsWithChildren<HoursTableDayProps>): JSX.Element {
   const status = props.isClosed
     ? props.closedMessage
     : props.children;
