@@ -81,7 +81,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/tests/__setup__/*",
-      "<rootDir>/tests/__fixtures__/*"
+      "<rootDir>/tests/__fixtures__/*",
+      "<rootDir>/src/components/Address/i18n.ts"
     ],
     "transform": {
       "\\.[jt]sx?$": [
