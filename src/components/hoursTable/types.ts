@@ -10,7 +10,7 @@ export type DayOfWeek = keyof Omit<Hours, "holidayHours" | "reopenDate">;
 /**
  * The available options for formating a localized time string
  */
-export type LocalizeTime = {
+export interface LocalizeTime {
   /** The locale to format the time against */
   locales?: Intl.LocalesArgument;
   /** The options to format the time against */
