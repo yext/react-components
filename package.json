@@ -64,7 +64,8 @@
     "verbose": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**"
+      "src/**",
+      "!src/components/Address/i18n.ts"
     ],
     "moduleFileExtensions": [
       "js",
@@ -81,8 +82,7 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/tests/__setup__/*",
-      "<rootDir>/tests/__fixtures__/*",
-      "<rootDir>/src/components/Address/i18n.ts"
+      "<rootDir>/tests/__fixtures__/*"
     ],
     "transform": {
       "\\.[jt]sx?$": [
