@@ -51,25 +51,26 @@ export function Hours({
 
   return (
     <HoursTable>
-      {days.map((key, i) => {
+      {days.map((dayOfWeek, i) => {
         const date = new Date();
         const relativeDays = i - offset;
         date.setDate(date.getDate() + relativeDays);
 
         const isTempClosed = reopenDate && reopenDate.getTime() > date.getTime();
         const isHoliday = hours.holidayHours?.find((holiday) => holiday.date === yextDate(date));
-        const day = isHoliday ? isHoliday : hours[key];
+        const day = isHoliday ? isHoliday : hours[dayOfWeek];
 
         if (!day) {
+          console.warn("[@yext/react-components/hours] Missing data for day: " + dayOfWeek);
           return;
         }
 
         return (
           <HoursTable.Day
-            dayOfWeek={key}
+            dayOfWeek={dayOfWeek}
             isClosed={isTempClosed || day.isClosed}
             closedMessage={closedMessage}
-            label={dayOfWeekNames ? dayOfWeekNames?.[key] : undefined}
+            label={dayOfWeekNames ? dayOfWeekNames?.[dayOfWeek] : undefined}
             key={date.getTime()}
           >
             {day.openIntervals.map((interval) => (
