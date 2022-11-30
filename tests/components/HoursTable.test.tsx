@@ -159,6 +159,7 @@ describe("parseTime", () => {
     parseTime("invalidTime");
     expect(logMock).toBeCalledTimes(1);
     expect(logMock).toBeCalledWith("Invalid time format, must be 'HH:MM'");
+    logMock.mockRestore();
   })
 });
 
