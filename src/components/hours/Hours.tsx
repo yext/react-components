@@ -9,10 +9,18 @@ import { getDays, daysSince, yextDate, parseDate } from "./utils";
 export interface HoursProps {
   /** Pass through a custom closed message. */
   closedMessage?: React.ReactNode;
+  /** A map for setting custom day labels. */
   dayOfWeekNames?: Partial<Record<DayOfWeek, string>>
+  /**
+   * Pass through to customize the message format (use {0} for starting
+   * time and {1} for end time). Example: 'From {0} to {1}'.
+   */
   format?: string;
+  /** Hours data from Yext Knowledge Graph. */
   hours: HoursType;
+  /** Number of days to add to the table. */
   size?: number;
+  /** The day of the week to start on. */
   startOfWeek?: DayOfWeek;
 }
 
