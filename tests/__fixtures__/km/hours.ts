@@ -28,24 +28,25 @@ export const HOURS: Hours = {
   },
   sunday: {
     isClosed: false,
-    openIntervals: [{ start: "9:07", end: "18:07" }],
+    openIntervals: [
+      { start: "9:00", end: "11:00" },
+      { start: "12:00", end: "18:00" },
+    ],
   },
 };
 
 export const HOURS_WITH_HOLIDAY: Hours = {
   ...HOURS,
-  sunday: {
-    isClosed: false,
-    openIntervals: [
-      { start: "9:07", end: "11:07" },
-      { start: "12:07", end: "18:07" },
-    ],
-  },
   holidayHours: [
     {
-      date: "2022-08-11",
+      date: dateInFuture(0),
       openIntervals: [{ start: "9:00", end: "12:00" }],
       isClosed: false,
+    },
+    {
+      date: dateInFuture(1),
+      openIntervals: [],
+      isClosed: true,
     },
   ],
 };
