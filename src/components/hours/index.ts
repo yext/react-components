@@ -1,1 +1,1 @@
-export { Hours, HoursProps } from "./Hours.js";
+export { Hours, HoursProps } from "./Hours";

@@ -9,22 +9,23 @@ const meta: ComponentMeta<typeof Hours> = {
 
 export default meta;
 
-export const Primary: Story<Partial<HoursProps>> = (args) => {
+export const Primary: Story<HoursProps> = (args) => {
   return (
-    <Hours hours={HOURS} {...args} />
+    <Hours {...args} />
   );
 };
 Primary.args = {
   closedMessage: '',
   dayOfWeekNames: {},
   format: 'From {0} to {1}',
+  hours: HOURS,
   size: 7,
   startOfWeek: 'monday',
 }
 
-export const Holiday: Story<Partial<HoursProps>> = (args) => {
+export const Holiday: Story<HoursProps> = (args) => {
   return (
-    <Hours hours={HOURS_WITH_HOLIDAY} {...args} />
+    <Hours {...args} />
   );
 };
 Holiday.args = {
@@ -33,19 +34,21 @@ Holiday.args = {
   },
   closedMessage: 'Closed Today',
   format: '',
+  hours: HOURS_WITH_HOLIDAY,
   size: 7,
   startOfWeek: 'monday',
 }
 
-export const TemporarilyClosed: Story<Partial<HoursProps>> = (args) => {
+export const TemporarilyClosed: Story<HoursProps> = (args) => {
   return (
-    <Hours hours={HOURS_WITH_REOPEN_DATE} {...args} />
+    <Hours {...args} />
   );
 };
 TemporarilyClosed.args = {
   closedMessage: 'Temporarily Closed',
   dayOfWeekNames: {},
   format: '',
+  hours: HOURS_WITH_REOPEN_DATE,
   size: 7,
   startOfWeek: 'sunday',
 }

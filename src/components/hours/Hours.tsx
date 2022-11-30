@@ -5,6 +5,8 @@ import { getDays, daysSince, yextDate, parseDate } from "./utils";
 
 /**
  * The shape of the data passed to {@link Hours}.
+ * 
+ * @public
  */
 export interface HoursProps {
   /** Pass through a custom closed message. */
@@ -13,7 +15,7 @@ export interface HoursProps {
   dayOfWeekNames?: Partial<Record<DayOfWeek, string>>
   /**
    * Pass through to customize the message format (use {0} for starting
-   * time and {1} for end time). Example: 'From {0} to {1}'.
+   * time and \{1\} for end time). Example: 'From \{0\} to \{1\}'.
    */
   format?: string;
   /** Hours data from Yext Knowledge Graph. */
@@ -42,7 +44,7 @@ export function Hours({
   hours,
   size = 7,
   startOfWeek,
-}: HoursProps) {
+}: HoursProps): JSX.Element {
   const days = getDays(size, startOfWeek);
   const offset = startOfWeek ? daysSince(startOfWeek) : 0;
   const reopenDate = hours.reopenDate && parseDate(hours.reopenDate);
@@ -67,7 +69,7 @@ export function Hours({
             dayOfWeek={key}
             isClosed={isTempClosed || day.isClosed}
             closedMessage={closedMessage}
-            label={dayOfWeekNames ? dayOfWeekNames[key] : undefined}
+            label={dayOfWeekNames ? dayOfWeekNames?.[key] : undefined}
             key={date.getTime()}
           >
             {day.openIntervals.map((interval) => (

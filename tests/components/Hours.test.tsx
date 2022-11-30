@@ -68,7 +68,6 @@ describe("Hours", () => {
     render(<Hours hours={INVALID_HOURS} />);
     expect(logMock).toBeCalledTimes(1);
     expect(logMock).toBeCalledWith("Invalid time format, must be 'HH:MM'");
-    logMock.mockRestore();
   });
 
   it("skips over missing data", () => {
@@ -179,6 +178,5 @@ describe("parseDate", () => {
     parseDate("2022-11");
     expect(logMock).toBeCalledTimes(1);
     expect(logMock).toBeCalledWith("Invalid date format, must be 'YYYY-MM-DD'");
-    logMock.mockRestore();
   });
 });
