@@ -37,7 +37,6 @@ export interface HoursProps {
  * an entity's hours from Yext Knowledge Graph:
  *
  * @example
- * An example rendering an hours table for a location entity:
  * ```
  * import { Hours } from "@yext/react-components";
  *

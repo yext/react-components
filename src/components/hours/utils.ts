@@ -14,7 +14,6 @@ export const DAYS_OF_WEEK: DayOfWeek[] = [
  * Create a list of days to include in the {@link HoursTable}
  *
  * @example
- * A list of 7 days starting on a Thursday:
  * ```
  * // Returns ['thursday', 'friday', 'saturday', 'sunday','monday',
  * 'tuesday', 'wednesday']
@@ -22,7 +21,6 @@ export const DAYS_OF_WEEK: DayOfWeek[] = [
  * ```
  *
  * @example
- * A list of 11 days starting on a Wednesday:
  * ```
  * // Returns ['wednesday', 'thursday', 'friday', 'saturday', 'sunday',
  * 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
@@ -31,7 +29,6 @@ export const DAYS_OF_WEEK: DayOfWeek[] = [
  *
  * @param size - number of days to include
  * @param start - the day of week to start on
- * @returns a list of days of week
  */
 export function getDays(size: number, start?: DayOfWeek): DayOfWeek[] {
   const pivot = start
@@ -47,11 +44,17 @@ export function getDays(size: number, start?: DayOfWeek): DayOfWeek[] {
 }
 
 /**
- * Determine the number of days since a particular day of the week.
+ * Determine the number of days since a particular day in {@link DAYS_OF_WEEK}.
+ * 
+ * S, M, T, W, R, F, S
+ *    ^     ^
+ *    a     b
+ * 
+ * a is 2 days before b: 2
+ * b is 2 days after a: -2
  *
  * @param dayOfWeek - day of week the table starts on.
  * @param date - the date to compare, defaults to current date.
- * @returns number of days.
  */
 export function daysSince(dayOfWeek: DayOfWeek, date = new Date()): number {
   const start = DAYS_OF_WEEK.findIndex((day) => day === dayOfWeek);
@@ -69,7 +72,6 @@ export function daysSince(dayOfWeek: DayOfWeek, date = new Date()): number {
  * ```
  *
  * @param date - a Javascript Date object, defaults to current date.
- * @returns - Date as "YYYY-MM-DD".
  */
 export function yextDate(date = new Date()): string {
   const yyyy = "" + date.getFullYear();
@@ -90,13 +92,12 @@ export function yextDate(date = new Date()): string {
  * Converts a Yext date format into a Javascript Date object.
  *
  * @example
- * Example getting a Javascript Date object for November 11, 2022:
  * ```
+ * // Date for November 31, 2022
  * parseDate("2022-11-31");
  * ```
  *
  * @param yextDate - a Yext date formatted string.
- * @returns
  */
 export function parseDate(yextDate: string): Date | undefined {
   const [yyyy, mm, dd] = yextDate.split("-").map((str) => parseInt(str));
