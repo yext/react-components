@@ -161,7 +161,7 @@ describe("yextDate", () => {
   });
 
   it("returns the current date as a Yext date", () => {
-    const yext = yextDate();
+    const yext = yextDate(new Date());
     const date = parseDate(yext);
     const yyyy = date?.getFullYear();
     const mm = date && date.getMonth() + 1;

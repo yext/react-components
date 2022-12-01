@@ -73,7 +73,7 @@ export function daysSince(dayOfWeek: DayOfWeek, date = new Date()): number {
  *
  * @param date - a Javascript Date object, defaults to current date.
  */
-export function yextDate(date = new Date()): string {
+export function yextDate(date): string {
   const yyyy = "" + date.getFullYear();
   let mm = "" + (date.getMonth() + 1);
   let dd = "" + date.getDate();
