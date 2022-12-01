@@ -41,10 +41,11 @@
     "@typescript-eslint/parser": "^5.16.0",
     "@yext/eslint-config": "^1.0.0",
     "@yext/eslint-plugin-export-star": "^1.0.2",
-    "@yext/types": "^0.1.10-alpha",
+    "@yext/types": "^0.1.11-alpha",
     "axe-playwright": "^1.1.11",
     "babel-jest": "^27.0.6",
     "eslint": "^8.11.0",
+    "eslint-plugin-react-perf": "^3.3.1",
     "eslint-plugin-storybook": "^0.6.7",
     "eslint-plugin-tsdoc": "^0.2.17",
     "jest": "^29.2.2",
@@ -64,6 +65,7 @@
     "bail": 0,
     "verbose": true,
     "collectCoverage": true,
+    "restoreMocks": true,
     "collectCoverageFrom": [
       "src/**"
     ],

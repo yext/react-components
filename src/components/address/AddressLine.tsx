@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Address } from "@yext/types";
 import { AddressFieldName } from "./types";
-import { getUnabbreviated } from "./methods";
+import { getUnabbreviated } from "./utils";
 
 /**
  * The shape of the data passed to {@link AddressLine}.

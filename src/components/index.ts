@@ -1,2 +1,3 @@
-export { Address } from "./Address/Address";
+export * from "./address";
+export * from "./image";
 export { PinComponent, MapboxMapProps, MapboxMap } from "./MapboxMap";

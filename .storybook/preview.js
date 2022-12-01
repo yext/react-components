@@ -15,7 +15,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ["Address"],
+      order: ["Image", "Address"],
     },
   },
 };
