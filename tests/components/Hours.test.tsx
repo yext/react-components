@@ -61,6 +61,8 @@ describe("Hours", () => {
       const hasDay = !!screen.queryByText(day) && day !== "Monday";
       expect(hasDay).toBeFalsy();
     });
+    const monday = screen.queryByText("Monday");
+    expect(monday).toBeTruthy();
   });
 
   it("fails on invalid data", () => {
@@ -79,7 +81,7 @@ describe("Hours", () => {
     render(<Hours hours={UNDEFINED_HOURS} />);
 
     DAYS_OF_WEEK.map((day) => toCapitalCase(day)).forEach((day) => {
-      const hasDay = !!screen.queryByText(day) && day !== "Monday";
+      const hasDay = !!screen.queryByText(day) || day === "Monday";
       expect(hasDay).toBeTruthy();
     });
     expect(logMock).toBeCalledTimes(1);
