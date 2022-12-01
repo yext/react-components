@@ -23,11 +23,7 @@ Primary.args = {
   startOfWeek: 'monday',
 }
 
-export const Holiday: Story<HoursProps> = (args) => {
-  return (
-    <Hours {...args} />
-  );
-};
+export const Holiday = Primary.bind({});
 Holiday.args = {
   dayOfWeekNames: {
     'thursday': 'Thanksgiving',
@@ -39,11 +35,7 @@ Holiday.args = {
   startOfWeek: 'monday',
 }
 
-export const TemporarilyClosed: Story<HoursProps> = (args) => {
-  return (
-    <Hours {...args} />
-  );
-};
+export const TemporarilyClosed = Primary.bind({});
 TemporarilyClosed.args = {
   closedMessage: 'Temporarily Closed',
   dayOfWeekNames: {},
