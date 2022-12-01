@@ -111,37 +111,46 @@ export function MapboxMap({
     markers.current = [];
     const mapbox = map.current;
     if (mapbox && markerLocations.length > 0) {
-      const bounds = new LngLatBounds();
-      markerLocations.forEach((markerLocation, i) => {
-        const { latitude, longitude } = markerLocation;
-        const el = document.createElement("div");
-        const markerOptions: MarkerOptions = {};
-        if (PinComponent) {
-          ReactDOM.render(
-            <PinComponent
-              index={i}
-              mapbox={mapbox}
-              coordinate={markerLocation}
-            />,
-            el
-          );
-          markerOptions.element = el;
-        }
-        const marker = new Marker(markerOptions)
-          .setLngLat({ lat: latitude, lng: longitude })
-          .addTo(mapbox);
-        markers.current.push(marker);
-        bounds.extend([longitude, latitude]);
-      });
-
-      if (!bounds.isEmpty()) {
-        mapbox.fitBounds(bounds, {
-          padding: { top: 50, bottom: 50, left: 50, right: 50 },
-          maxZoom: 15,
-        });
-      }
+      generateMarkers(markerLocations, mapbox, markers, PinComponent);
     }
   }, [PinComponent, markerLocations]);
 
   return <div ref={mapContainer} />;
+}
+
+/**
+ * Renders a new set of Markers using the provided coordinates and adds them to the Map.
+ * Additionally, updates the provided array of Marker React Refs.
+ */
+function generateMarkers(
+  markerLocations: Coordinate[],
+  mapbox: mapboxgl.Map,
+  markerRefs: React.MutableRefObject<mapboxgl.Marker[]>,
+  PinComponent: PinComponent | undefined
+) {
+  const bounds = new LngLatBounds();
+  markerLocations.forEach((markerLocation, i) => {
+    const { latitude, longitude } = markerLocation;
+    const el = document.createElement("div");
+    const markerOptions: MarkerOptions = {};
+    if (PinComponent) {
+      ReactDOM.render(
+        <PinComponent index={i} mapbox={mapbox} coordinate={markerLocation} />,
+        el
+      );
+      markerOptions.element = el;
+    }
+    const marker = new Marker(markerOptions)
+      .setLngLat({ lat: latitude, lng: longitude })
+      .addTo(mapbox);
+    markerRefs.current.push(marker);
+    bounds.extend([longitude, latitude]);
+  });
+
+  if (!bounds.isEmpty()) {
+    mapbox.fitBounds(bounds, {
+      padding: { top: 50, bottom: 50, left: 50, right: 50 },
+      maxZoom: 15,
+    });
+  }
 }
