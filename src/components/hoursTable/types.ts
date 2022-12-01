@@ -1,6 +1,4 @@
-import {
-  Hours
-} from "@yext/types";
+import { Hours } from "@yext/types";
 
 /**
  * The available keys that represent a day of the week

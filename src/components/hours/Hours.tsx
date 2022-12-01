@@ -5,18 +5,18 @@ import { getDays, daysSince, yextDate, parseDate } from "./utils";
 
 /**
  * The shape of the data passed to {@link Hours}.
- * 
+ *
  * @public
  */
 export interface HoursProps {
   /** Pass through a custom closed message. */
   closedMessage?: React.ReactNode;
   /** A map for setting custom day labels. */
-  dayOfWeekNames?: Partial<Record<DayOfWeek, string>>
+  dayOfWeekNames?: Partial<Record<DayOfWeek, string>>;
   /**
-   * Pass through to customize the message format (use {0} for starting
+   * Pass through to customize the message format (use \{0\} for starting
    * time and \{1\} for end time).
-   * 
+   *
    * @example
    * ```
    * // Prints "From 9:00 AM to 5:00 PM"
@@ -35,12 +35,12 @@ export interface HoursProps {
 /**
  * Renders a table of store hours based on the Yext Knowledge Graph. Example of using the component to render
  * an entity's hours from Yext Knowledge Graph:
- * 
+ *
  * @example
  * An example rendering an hours table for a location entity:
  * ```
  * import { Hours } from "@yext/react-components";
- * 
+ *
  * const hours = (<Hours hours={props.data.document.hours} />);
  * ```
  *
@@ -66,13 +66,18 @@ export function Hours({
       {days.map((dayOfWeek) => {
         date.setDate(date.getDate() + 1);
 
-        const isTempClosed = reopenDate && reopenDate.getTime() > date.getTime();
-        const holidayHours = hours.holidayHours?.find((holiday) => holiday.date === yextDate(date));
+        const isTempClosed =
+          reopenDate && reopenDate.getTime() > date.getTime();
+        const holidayHours = hours.holidayHours?.find(
+          (holiday) => holiday.date === yextDate(date)
+        );
         const day = holidayHours ? holidayHours : hours[dayOfWeek];
 
         if (!day) {
-          console.warn(`[@yext/react-components/hours] Missing data for day: ${dayOfWeek}`);
-          return;
+          console.warn(
+            `[@yext/react-components/hours] Missing data for day: ${dayOfWeek}`
+          );
+          return <></>;
         }
 
         return (

@@ -56,3 +56,20 @@ export const HOURS_WITH_REOPEN_DATE: Hours = {
   reopenDate: dateInFuture(3),
 };
 
+export const INVALID_HOURS: Hours = {
+  ...HOURS,
+  monday: {
+    isClosed: false,
+    openIntervals: [
+      {
+        start: "9AM",
+        end: "6:30PM",
+      },
+    ],
+  },
+};
+
+export const UNDEFINED_HOURS: Hours = {
+  ...HOURS,
+  monday: undefined,
+};
