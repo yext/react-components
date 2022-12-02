@@ -71,7 +71,7 @@ export function Hours({
         const holidayHours = hours.holidayHours?.find(
           (holiday) => holiday.date === yextDate(date)
         );
-        const day = holidayHours ? holidayHours : hours[dayOfWeek];
+        const day = holidayHours ?? hours[dayOfWeek];
 
         if (!day) {
           console.warn(
