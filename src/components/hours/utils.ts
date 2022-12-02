@@ -73,7 +73,7 @@ export function daysSince(dayOfWeek: DayOfWeek, date = new Date()): number {
  *
  * @param date - a Javascript Date object, defaults to current date.
  */
-export function yextDate(date): string {
+export function yextDate(date: Date): string {
   const yyyy = "" + date.getFullYear();
   let mm = "" + (date.getMonth() + 1);
   let dd = "" + date.getDate();
@@ -107,10 +107,5 @@ export function parseDate(yextDate: string): Date | undefined {
     return undefined;
   }
 
-  const date = new Date();
-  date.setFullYear(yyyy);
-  date.setMonth(mm - 1);
-  date.setDate(dd);
-
-  return date;
+  return new Date(yyyy, mm - 1, dd);
 }

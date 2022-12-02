@@ -76,7 +76,7 @@ export function Hours({
           console.warn(
             `[@yext/react-components/hours] Missing data for day: ${dayOfWeek}`
           );
-          return <></>;
+          return null;
         }
 
         return (
