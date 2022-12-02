@@ -45,11 +45,11 @@ export function getDays(size: number, start?: DayOfWeek): DayOfWeek[] {
 
 /**
  * Determine the number of days since a particular day in {@link DAYS_OF_WEEK}.
- * 
+ *
  * S, M, T, W, R, F, S
  *    ^     ^
  *    a     b
- * 
+ *
  * a is 2 days before b: 2
  * b is 2 days after a: -2
  *
