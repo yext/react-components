@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { HoursTable } from "../../src/components/hoursTable";
-import { format, parseTime, toCapitalCase } from "../../src/components/hoursTable/utils";
+import {
+  format,
+  parseTime,
+  toCapitalCase,
+} from "../../src/components/hoursTable/utils";
 
 describe("HoursTable", () => {
   it("properly wraps HoursTable.Day", () => {
@@ -74,9 +78,7 @@ describe("HoursTable.Day", () => {
 
 describe("HoursTable.Interval", () => {
   it("properly renders an interval message", () => {
-    render(
-      <HoursTable.Interval start="9:00" end="18:00" />
-    );
+    render(<HoursTable.Interval start="9:00" end="18:00" />);
 
     const label = screen.getByText("9:00 AM – 6:00 PM");
     expect(label).toBeTruthy();
@@ -84,11 +86,7 @@ describe("HoursTable.Interval", () => {
 
   it("properly renders with a custom message format", () => {
     render(
-      <HoursTable.Interval
-        start="9:00"
-        end="18:00"
-        format="From {0} to {1}."
-      />
+      <HoursTable.Interval start="9:00" end="18:00" format="From {0} to {1}." />
     );
 
     const label = screen.getByText("From 9:00 AM to 6:00 PM.");
@@ -101,8 +99,8 @@ describe("HoursTable.Interval", () => {
         start="9:00"
         end="18:00"
         localize={{
-          locales: 'en-us',
-          options: { hour: "numeric", minute: "numeric", hour12: false }
+          locales: "en-us",
+          options: { hour: "numeric", minute: "numeric", hour12: false },
         }}
       />
     );
@@ -146,7 +144,10 @@ describe("parseTime", () => {
   });
 
   it("returns a custom JS localized time string", () => {
-    const actual = parseTime("18:00", { locales: 'en-us', options: { hour12: false, hour: 'numeric', minute: 'numeric' }});
+    const actual = parseTime("18:00", {
+      locales: "en-us",
+      options: { hour12: false, hour: "numeric", minute: "numeric" },
+    });
     const expected = "18:00";
 
     expect(actual).toBe(expected);
@@ -159,7 +160,7 @@ describe("parseTime", () => {
     parseTime("invalidTime");
     expect(logMock).toBeCalledTimes(1);
     expect(logMock).toBeCalledWith("Invalid time format, must be 'HH:MM'");
-  })
+  });
 });
 
 describe("toCapitalCase", () => {
@@ -168,5 +169,5 @@ describe("toCapitalCase", () => {
     const expected = "Yext";
 
     expect(actual).toBe(expected);
-  })
-})
+  });
+});

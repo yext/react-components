@@ -1,6 +1,9 @@
 import { ComponentMeta, Story } from "@storybook/react";
 import { OpenIntervals } from "@yext/types";
-import { HoursTable, HoursTableProps } from "../../src/components/hoursTable/HoursTable";
+import {
+  HoursTable,
+  HoursTableProps,
+} from "../../src/components/hoursTable/HoursTable";
 import { HoursTableDayProps } from "../../src/components/hoursTable/HoursTableDay";
 import { HoursTableIntervalProps } from "../../src/components/hoursTable/HoursTableInterval";
 import { DayOfWeek, LocalizeTime } from "../../src/components/hoursTable/types";
@@ -14,14 +17,13 @@ const meta: ComponentMeta<typeof HoursTable> = {
 export default meta;
 
 export const Primary: Story<HoursTableProps> = () => {
-
   const getInterval = (dayOfWeek: DayOfWeek): OpenIntervals | undefined => {
     return HOURS[dayOfWeek]?.openIntervals[0];
-  }
+  };
 
   const timeFormat: LocalizeTime = {
-    locales: 'en-us',
-    options: { hour: "numeric", minute: "numeric" }
+    locales: "en-us",
+    options: { hour: "numeric", minute: "numeric" },
   };
 
   return (
@@ -34,7 +36,8 @@ export const Primary: Story<HoursTableProps> = () => {
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="wednesday">
         <HoursTable.Interval
-          {...getInterval("wednesday")} localize={timeFormat}
+          {...getInterval("wednesday")}
+          localize={timeFormat}
         />
       </HoursTable.Day>
       <HoursTable.Day
@@ -49,10 +52,7 @@ export const Primary: Story<HoursTableProps> = () => {
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="friday">
-        <HoursTable.Interval
-          {...getInterval("friday")}
-          localize={timeFormat}
-        />
+        <HoursTable.Interval {...getInterval("friday")} localize={timeFormat} />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="saturday">
         <HoursTable.Interval
@@ -61,16 +61,10 @@ export const Primary: Story<HoursTableProps> = () => {
         />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="sunday">
-        <HoursTable.Interval
-          {...getInterval("sunday")}
-          localize={timeFormat}
-        />
+        <HoursTable.Interval {...getInterval("sunday")} localize={timeFormat} />
       </HoursTable.Day>
       <HoursTable.Day dayOfWeek="monday">
-        <HoursTable.Interval
-          {...getInterval("monday")}
-          localize={timeFormat}
-        />
+        <HoursTable.Interval {...getInterval("monday")} localize={timeFormat} />
       </HoursTable.Day>
     </HoursTable>
   );
@@ -82,28 +76,29 @@ export const HoursTableDay: Story<HoursTableDayProps> = (args) => {
       <HoursTable.Interval
         start="9:00"
         end="18:00"
-        localize={{ locales: 'en-us', options: { hour: "numeric", minute: "numeric" }}}
+        localize={{
+          locales: "en-us",
+          options: { hour: "numeric", minute: "numeric" },
+        }}
       />
     </HoursTable.Day>
-  )
+  );
 };
 HoursTableDay.args = {
   dayOfWeek: "monday",
   isClosed: false,
-  closedMessage: "Closed"
+  closedMessage: "Closed",
 };
 
 export const HoursTableInterval: Story<HoursTableIntervalProps> = (args) => {
-  return (
-    <HoursTable.Interval {...args} />
-  )
+  return <HoursTable.Interval {...args} />;
 };
 HoursTableInterval.args = {
   start: "9:00",
   end: "18:00",
   localize: {
-    locales: 'en-us',
-    options: { hour: "numeric", minute: "numeric" }
+    locales: "en-us",
+    options: { hour: "numeric", minute: "numeric" },
   },
-  format: 'From {0} to {1}.'
+  format: "From {0} to {1}.",
 };

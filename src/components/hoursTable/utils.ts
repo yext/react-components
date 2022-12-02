@@ -1,11 +1,14 @@
 import { LocalizeTime } from "./types";
 
 const DEFAULT_TO_LOCALE_TIME_STRING: LocalizeTime = {
-  locales: 'en-us',
+  locales: "en-us",
   options: { hour: "numeric", minute: "numeric" },
 };
 
-export function parseTime(yextTime: string | undefined, localize = DEFAULT_TO_LOCALE_TIME_STRING): string {
+export function parseTime(
+  yextTime: string | undefined,
+  localize = DEFAULT_TO_LOCALE_TIME_STRING
+): string {
   if (!yextTime?.includes(":")) {
     console.error("Invalid time format, must be 'HH:MM'");
     return "";

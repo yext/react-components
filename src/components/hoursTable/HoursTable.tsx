@@ -14,9 +14,9 @@ export interface HoursTableProps {
  * based on the Yext Knowledge Graph.
  * Example of constructing your own table:
  * ```
- * 
+ *
  * import { HoursTable } from "@yext/react-components";
- * 
+ *
  * const hours = (
  *  <HoursTable>
  *    <HoursTable.Day dayOfWeek="monday">
@@ -26,20 +26,14 @@ export interface HoursTableProps {
  *  </HoursTable>
  * );
  * ```
- * 
+ *
  * @public
  */
 function HoursTable(props: HoursTableProps): JSX.Element {
-  return (
-    <div>
-      {props.children}
-    </div>
-  );
+  return <div>{props.children}</div>;
 }
 
 HoursTable.Day = HoursTableDay;
 HoursTable.Interval = HoursTableInterval;
 
-export {
-  HoursTable
-};
+export { HoursTable };

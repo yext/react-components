@@ -17,24 +17,20 @@ export interface HoursTableDayProps {
 
 /**
  * A sub component of {@link HoursTable} that renders a particular day (represented as a row) in the table.
- * 
- * @public 
+ *
+ * @public
  */
-export default function HoursTableDay(props: React.PropsWithChildren<HoursTableDayProps>): JSX.Element {
-  const status = props.isClosed
-    ? props.closedMessage
-    : props.children;
+export default function HoursTableDay(
+  props: React.PropsWithChildren<HoursTableDayProps>
+): JSX.Element {
+  const status = props.isClosed ? props.closedMessage : props.children;
 
   const label = props.label || toCapitalCase(props.dayOfWeek);
 
   return (
     <>
-      <div>
-        {label}
-      </div>
-      <div>
-        {status}
-      </div>
+      <div>{label}</div>
+      <div>{status}</div>
     </>
   );
 }

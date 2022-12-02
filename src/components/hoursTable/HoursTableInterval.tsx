@@ -10,10 +10,10 @@ export interface HoursTableIntervalProps {
   /** End time (in HH:MM format). */
   end?: string;
   /** A pass through object to configure the localized time . */
-  localize?: LocalizeTime
+  localize?: LocalizeTime;
   /**
-   * Customize the message format (use {0} for starting time and {1} for end time).
-   * Example: 'From {0} to {1}'.
+   * Customize the message format (use \{0\} for starting time and \{1\} for end time).
+   * Example: 'From \{0\} to \{1\}'.
    */
   format?: string;
 }
@@ -21,10 +21,12 @@ export interface HoursTableIntervalProps {
 /**
  * A sub component of {@link HoursTable} that renders a continuous period of time that a
  * location may be open, based on the Yext Knowledge Graph.
- * 
- * @public 
+ *
+ * @public
  */
-export default function HoursTableInterval(props: HoursTableIntervalProps): JSX.Element {
+export default function HoursTableInterval(
+  props: HoursTableIntervalProps
+): JSX.Element {
   const start = parseTime(props.start, props.localize);
   const end = parseTime(props.end, props.localize);
 
@@ -32,5 +34,5 @@ export default function HoursTableInterval(props: HoursTableIntervalProps): JSX.
     <div>
       {props.format ? format(props.format, start, end) : `${start} – ${end}`}
     </div>
-  )
+  );
 }
