@@ -33,10 +33,11 @@ export interface HoursProps {
 }
 
 /**
- * Renders a table of store hours based on the Yext Knowledge Graph. Example of using the component to render
- * an entity's hours from Yext Knowledge Graph:
+ * Renders a table of store hours based on the Yext Knowledge Graph.
  *
  * @example
+ * Example of using the component to render an entity's hours from
+ * Yext Knowledge Graph:
  * ```
  * import { Hours } from "@yext/react-components";
  *
