@@ -70,7 +70,8 @@
     "collectCoverage": true,
     "restoreMocks": true,
     "collectCoverageFrom": [
-      "src/**"
+      "src/**",
+      "!src/components/Address/i18n.ts"
     ],
     "moduleFileExtensions": [
       "js",
