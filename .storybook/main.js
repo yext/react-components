@@ -15,9 +15,7 @@ module.exports = {
         },
       },
     },
-    {
-      name: "@storybook/addon-postcss",
-    },
+    "@storybook/addon-postcss",
   ],
   framework: "@storybook/react",
   core: {
