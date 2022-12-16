@@ -1,3 +1,5 @@
+const { mergeConfig } = require("vite");
+
 module.exports = {
   stories: ["../tests/**/*.stories.tsx"],
   addons: [
@@ -15,16 +17,18 @@ module.exports = {
     },
     {
       name: "@storybook/addon-postcss",
-      options: {
-        postcssLoaderOptions: {
-          implementation: require("postcss"),
-        },
-      },
     },
   ],
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-vite",
+  },
+  viteFinal(config) {
+    return mergeConfig(config, {
+      css: {
+        postcss: __dirname,
+      },
+    });
   },
   staticDirs: ["./public"],
 };
