@@ -28,9 +28,9 @@ export default function HoursTableDay(
   const label = props.label || toCapitalCase(props.dayOfWeek);
 
   return (
-    <>
-      <div>{label}</div>
-      <div>{status}</div>
-    </>
+    <div className="flex">
+      <div className="flex-[0_0_128px]">{label}</div>
+      <div className="flex-[0_0_256px] flex flex-col">{status}</div>
+    </div>
   );
 }
