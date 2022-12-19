@@ -30,7 +30,7 @@ export default function HoursTableDay(
   return (
     <div className="flex">
       <div className="flex-[0_0_128px]">{label}</div>
-      <div className="flex-[0_0_256px] flex flex-col">{status}</div>
+      <div className="flex-[0_0_256px] flex-col">{status}</div>
     </div>
   );
 }
