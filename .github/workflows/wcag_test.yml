@@ -7,3 +7,5 @@ on:
 jobs:
   call_wcag_test:
     uses: yext/slapshot-reusable-workflows/.github/workflows/wcag_test.yml@v1
+    secrets:
+      MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}

@@ -10,3 +10,5 @@ jobs:
     uses: yext/slapshot-reusable-workflows/.github/workflows/run_tests.yml@v1
     with:
       node_matrix: '["16.x", "18.x"]'
+    secrets:
+      MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}
