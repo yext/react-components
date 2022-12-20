@@ -1,5 +1,3 @@
-const { mergeConfig } = require("vite");
-
 module.exports = {
   stories: ["../tests/**/*.stories.tsx"],
   addons: [
@@ -15,17 +13,23 @@ module.exports = {
         },
       },
     },
+    {
+      name: "@storybook/addon-postcss",
+      options: {
+        cssLoaderOptions: {
+          importLoaders: 1,
+        },
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
+    },
   ],
   framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-vite",
-  },
-  viteFinal(config) {
-    return mergeConfig(config, {
-      css: {
-        postcss: __dirname,
-      },
-    });
-  },
   staticDirs: ["./public"],
+  env: (config) => ({
+    ...config,
+    REACT_APP_MAPBOX_API_KEY:
+      process.env.MAPBOX_API_KEY || process.env.REACT_APP_MAPBOX_API_KEY,
+  }),
 };

@@ -115,7 +115,7 @@ export function MapboxMap({
     }
   }, [PinComponent, markerLocations]);
 
-  return <div ref={mapContainer} />;
+  return <div className="w-full" ref={mapContainer} />;
 }
 
 /**
