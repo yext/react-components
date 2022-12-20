@@ -1,6 +1,6 @@
-import { runOnly } from "./wcagConfig";
-import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { runOnly } from "./wcagConfig";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

@@ -13,6 +13,17 @@ module.exports = {
         },
       },
     },
+    {
+      name: "@storybook/addon-postcss",
+      options: {
+        cssLoaderOptions: {
+          importLoaders: 1,
+        },
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
+    },
   ],
   framework: "@storybook/react",
   staticDirs: ["./public"],
