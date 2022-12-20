@@ -3,6 +3,5 @@ module.exports = {
     tailwindcss: {
       config: ".storybook/tailwind.config.cjs",
     },
-    autoprefixer: {},
   },
 };
