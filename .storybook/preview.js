@@ -1,5 +1,5 @@
 import "./index.css";
-import "mapbox-gl/dist/mapbox-gl.css";
+import "mapbox-gl/dist/mapbox-gl";
 import { runOnly } from "./wcagConfig";
 
 export const parameters = {
