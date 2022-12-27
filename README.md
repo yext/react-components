@@ -15,6 +15,16 @@
 
 A library of React Components for rendering complex Yext data types. See [@yext/types](https://github.com/yext/types) for type declarations.
 
+## Directory
+
+| Component  | Demo       |
+| ---------- | ---------- |
+| Image      | [Storybook](https://leniently-relative-caiman.pgsdemo.com/?path=/story/image--primary) |
+| Address    | [Storybook](https://leniently-relative-caiman.pgsdemo.com/?path=/story/address--primary) |
+| Hours      | [Storybook](https://leniently-relative-caiman.pgsdemo.com/?path=/story/hours--primary) |
+| HoursTable | [Storybook](https://leniently-relative-caiman.pgsdemo.com/?path=/story/hourstable--primary) |
+| Map        | [Storybook](https://leniently-relative-caiman.pgsdemo.com/?path=/story/mapboxmap--primary) |
+
 ## Getting Started
 
 ```bash
