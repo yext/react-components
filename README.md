@@ -13,7 +13,7 @@
 </div>
 <br>
 
-A library of React Components for rendering complex Yext data types.
+A library of React Components for rendering complex Yext data types. See [@yext/types](https://github.com/yext/types) for type declarations.
 
 ## Getting Started
 
@@ -24,17 +24,28 @@ npm install @yext/react-components
 Once the library is installed, our React Components should be available throughout your application.
 
 ```tsx
+import {
+  Address as AddressType,
+  Hours as HoursType,
+  Image as ImageType,
+  Coordinate,
+} from "@yext/types";
 import { Address, Hours, Image, Map } from "@yext/react-components";
 
-...
+interface LocationProps = {
+  address: AddressType;
+  hours: HoursType;
+  c_storefront: ImageType;
+  locationCoordinate: Coordinate;
+}
 
-const Location: Template<TemplateRenderProps> = ({ document }) => {
+const Location = (props: LocationProps) => {
   return (
     <>
-      <Address address={document.address} />
-      <Hours hours={document.hours} />
-      <Image image={document.c_myImage} />
-      <Map markerLocations={[document.locationCoordinate]} />
+      <Address address={props.address} />
+      <Hours hours={props.hours} />
+      <Image image={props.c_storefront} />
+      <Map markerLocations={[props.locationCoordinate]} />
     </>
   );
 }
