@@ -18,25 +18,29 @@ export interface MarkdownProps {
  * no Schema is provided, Rehype's default will be used.
  */
 export function Markdown({ content, sanitizationSchema }: MarkdownProps) {
-  const plugins: { remark: PluggableList; rehype: PluggableList } = {
-    remark: [remarkGfm],
-    rehype: [rehypeRaw],
-  };
+  const plugins = useMemo(() => {
+    const unifiedPlugins: { remark: PluggableList; rehype: PluggableList } = {
+      remark: [remarkGfm],
+      rehype: [rehypeRaw],
+    };
 
-  const sanitizationPlugin = useMemo(
-    () =>
-      sanitizationPlugin
-        ? [rehypeSanitize, { options: sanitizationSchema }]
-        : rehypeSanitize,
-    [sanitizationSchema]
-  );
-  plugins.rehype.push(sanitizationPlugin);
+    if (sanitizationSchema) {
+      unifiedPlugins.rehype.push([
+        rehypeSanitize,
+        { options: sanitizationSchema },
+      ]);
+    } else {
+      unifiedPlugins.rehype.push(rehypeSanitize);
+    }
+
+    return unifiedPlugins;
+  }, [sanitizationSchema]);
 
   return (
     <ReactMarkdown
       children={content}
       remarkPlugins={plugins.remark}
-      rehypePlugins={plugins.rehype as PluggableList}
+      rehypePlugins={plugins.rehype}
     />
   );
 }
