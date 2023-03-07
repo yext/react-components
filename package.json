@@ -83,7 +83,8 @@
     "restoreMocks": true,
     "collectCoverageFrom": [
       "src/**",
-      "!src/components/Address/i18n.ts"
+      "!src/components/Address/i18n.ts",
+      "!src/components/Markdown.tsx"
     ],
     "moduleFileExtensions": [
       "js",
