@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { Coordinate } from "@yext/types";
 import { Map, Marker } from "mapbox-gl";
 
-import { MapboxMap } from "../../src/components";
+import { MapboxMap } from "../../src/components/MapboxMap";
 
 jest.mock("mapbox-gl");
 

@@ -138,9 +138,8 @@ describe("format", () => {
 describe("parseTime", () => {
   it("transforms Yext Time string to a JS localized time string", () => {
     const actual = parseTime("09:00");
-    const expected = "9:00 AM";
 
-    expect(actual).toBe(expected);
+    expect(["9:00 AM", "9:00\u202FAM"]).toContain(actual);
   });
 
   it("returns a custom JS localized time string", () => {
