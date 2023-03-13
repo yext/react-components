@@ -93,7 +93,7 @@
       "src/**",
       "!src/components/Address/i18n.ts",
       "!src/components/Markdown.tsx",
-      "!src/components/richText/imageNode/*.tsx"
+      "!src/components/richText/**/*.ts?(x)"
     ],
     "moduleFileExtensions": [
       "js",
