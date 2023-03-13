@@ -3,9 +3,6 @@ import type { LexicalEditor, NodeKey } from "lexical";
 import * as React from "react";
 import { useRef, useMemo } from "react";
 
-/**
- *
- */
 interface LexicalImageProps {
   src: string;
   altText: string;
@@ -18,9 +15,6 @@ interface LexicalImageProps {
   caption: LexicalEditor;
 }
 
-/**
- *
- */
 export default function LexicalImage({
   src,
   altText,
