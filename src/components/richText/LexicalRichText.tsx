@@ -45,9 +45,6 @@ export function LexicalRichText({
   );
 }
 
-/**
- *
- */
 function generateConfig(
   editorState: string,
   theme?: EditorThemeClasses
