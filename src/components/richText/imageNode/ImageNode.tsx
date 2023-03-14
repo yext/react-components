@@ -146,11 +146,11 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
    */
   createDOM(config: EditorConfig): HTMLElement {
     const span = document.createElement("span");
-    const theme = config.theme;
-    const className = theme.image;
-    if (className !== undefined) {
+    const className = config.theme.image;
+    if (className) {
       span.className = className;
     }
+
     return span;
   }
 
