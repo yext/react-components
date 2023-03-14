@@ -5,6 +5,8 @@ import {
   DOMExportOutput,
   EditorConfig,
   LexicalEditor,
+  createEditor,
+  DecoratorNode,
   LexicalNode,
   NodeKey,
   SerializedEditor,
@@ -12,7 +14,6 @@ import {
   Spread,
 } from "lexical";
 
-import { createEditor, DecoratorNode } from "lexical";
 import * as React from "react";
 
 import LexicalImage from "./LexicalImage";
