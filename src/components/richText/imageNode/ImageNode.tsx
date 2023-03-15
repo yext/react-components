@@ -30,7 +30,10 @@ export type SerializedImageNode = Spread<
 >;
 
 /**
- * Defines a Lexical Dev {@link DecoratorNode} for images.
+ * Defines a Lexical Dev {@link DecoratorNode} that supports images in Rich Text. Rendering
+ * of the Node is acheived by using the {@link LexicalImage} Component. This Node is meant to
+ * be used with a read-only Lexical Editor. As such, it does not have setters for its various
+ * attributes.
  */
 export class ImageNode extends DecoratorNode<JSX.Element> {
   __src: string;
@@ -78,15 +81,6 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
   getAltText(): string {
     const latest = this.getLatest();
     return latest.__altText;
-  }
-
-  setWidthAndHeight(
-    width: "inherit" | number,
-    height: "inherit" | number
-  ): void {
-    const writable = this.getWritable();
-    writable.__width = width;
-    writable.__height = height;
   }
 
   /**

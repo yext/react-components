@@ -62,7 +62,7 @@ function generateConfig(
       throw error;
     },
     editorState: editorState,
-    theme: theme || DefaultNodeStyling,
+    theme: theme ?? DefaultNodeStyling,
     nodes: [
       HeadingNode,
       HashtagNode,
