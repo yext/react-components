@@ -24,9 +24,5 @@ export default function LexicalImage({
     return { height, width, maxWidth };
   }, [height, width, maxWidth]);
 
-  return (
-    <div>
-      <img src={src} alt={altText} style={style} />
-    </div>
-  );
+  return <img src={src} alt={altText} style={style} />;
 }

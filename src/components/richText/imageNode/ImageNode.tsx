@@ -2,7 +2,6 @@ import {
   $applyNodeReplacement,
   EditorConfig,
   DecoratorNode,
-  LexicalNode,
   NodeKey,
   SerializedLexicalNode,
   Spread,
@@ -140,13 +139,4 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
       />
     );
   }
-}
-
-/**
- * Type Checker that verifies if the provided node is an {@link ImageNode}.
- */
-export function $isImageNode(
-  node: LexicalNode | null | undefined
-): node is ImageNode {
-  return node instanceof ImageNode;
 }
