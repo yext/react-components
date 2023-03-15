@@ -11,8 +11,6 @@ import {
   Spread,
 } from "lexical";
 
-import * as React from "react";
-
 import LexicalImage from "./LexicalImage";
 
 /**
@@ -170,7 +168,6 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
         width={this.__width}
         height={this.__height}
         maxWidth={this.__maxWidth}
-        nodeKey={this.getKey()}
       />
     );
   }

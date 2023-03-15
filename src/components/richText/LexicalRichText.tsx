@@ -47,6 +47,10 @@ export function LexicalRichText({
   );
 }
 
+/**
+ * Configuration for the Lexical Editor that powers the {@link LexicalComposer}. There is
+ * some additional configuration (error handling, theme) specifically for this Component itself.
+ */
 function generateConfig(
   editorState: string,
   theme?: EditorThemeClasses

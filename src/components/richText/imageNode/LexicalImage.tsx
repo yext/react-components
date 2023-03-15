@@ -1,7 +1,4 @@
-import type { NodeKey } from "lexical";
-
-import * as React from "react";
-import { useRef, useMemo } from "react";
+import { useMemo } from "react";
 
 interface LexicalImageProps {
   src: string;
@@ -9,9 +6,13 @@ interface LexicalImageProps {
   maxWidth: number;
   width: "inherit" | number;
   height: "inherit" | number;
-  nodeKey: NodeKey;
 }
 
+/**
+ * Responsible for rendering a Lexical Dev {@link ImageNode} in the DOM. Currently, the Component is
+ * little more than a wrapper over an img tag. However, more advanced keyboard interactions may be
+ * added to the Component in future.
+ */
 export default function LexicalImage({
   src,
   altText,
@@ -19,15 +20,13 @@ export default function LexicalImage({
   height,
   maxWidth,
 }: LexicalImageProps): JSX.Element {
-  const imageRef = useRef<null | HTMLImageElement>(null);
-
   const style = useMemo(() => {
     return { height, width, maxWidth };
   }, [height, width, maxWidth]);
 
   return (
     <div>
-      <img src={src} alt={altText} ref={imageRef} style={style} />
+      <img src={src} alt={altText} style={style} />
     </div>
   );
 }
