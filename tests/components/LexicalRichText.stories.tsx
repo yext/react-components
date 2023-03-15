@@ -12,5 +12,5 @@ export const Primary: ComponentStory<typeof LexicalRichText> = (args) => (
   <LexicalRichText {...args} />
 );
 Primary.args = {
-  serializedAST: LEXICAL_RICH_TEXT_SERIALIZED_AST,
+  serializedAST: JSON.stringify(LEXICAL_RICH_TEXT_SERIALIZED_AST),
 };

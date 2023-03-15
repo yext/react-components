@@ -1,17 +1,11 @@
 import {
   $applyNodeReplacement,
-  DOMConversionMap,
-  DOMConversionOutput,
-  DOMExportOutput,
   EditorConfig,
   DecoratorNode,
-  LexicalNode,
   NodeKey,
   SerializedLexicalNode,
   Spread,
 } from "lexical";
-
-import * as React from "react";
 
 import LexicalImage from "./LexicalImage";
 
@@ -32,7 +26,10 @@ export type SerializedImageNode = Spread<
 >;
 
 /**
- * Defines a Lexical Dev {@link DecoratorNode} for images.
+ * Defines a Lexical Dev {@link DecoratorNode} that supports images in Rich Text. Rendering
+ * of the Node is acheived by using the {@link LexicalImage} Component. This Node is meant to
+ * be used with a read-only Lexical Editor. As such, it does not have setters for its various
+ * attributes.
  */
 export class ImageNode extends DecoratorNode<JSX.Element> {
   __src: string;
@@ -82,15 +79,6 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     return latest.__altText;
   }
 
-  setWidthAndHeight(
-    width: "inherit" | number,
-    height: "inherit" | number
-  ): void {
-    const writable = this.getWritable();
-    writable.__width = width;
-    writable.__height = height;
-  }
-
   /**
    * Defines the JSON Serialization strategy for an {@link ImageNode}.
    */
@@ -117,28 +105,6 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     );
 
     return node;
-  }
-
-  /**
-   * Defines how this node is serialized to HTML.
-   */
-  exportDOM(): DOMExportOutput {
-    const element = document.createElement("img");
-    element.setAttribute("src", this.__src);
-    element.setAttribute("alt", this.__altText);
-    return { element };
-  }
-
-  /**
-   * Static constructor for creating an {@link ImageNode} from an HTML-serialized Node.
-   */
-  static importDOM(): DOMConversionMap | null {
-    return {
-      img: () => ({
-        conversion: convertImageElement,
-        priority: 0,
-      }),
-    };
   }
 
   /**
@@ -170,31 +136,7 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
         width={this.__width}
         height={this.__height}
         maxWidth={this.__maxWidth}
-        nodeKey={this.getKey()}
       />
     );
   }
-}
-
-/**
- * Type Checker that verifies if the provided node is an {@link ImageNode}.
- */
-export function $isImageNode(
-  node: LexicalNode | null | undefined
-): node is ImageNode {
-  return node instanceof ImageNode;
-}
-
-/**
- * Converts an {@link HTMLImageElement} into an {@link ImageNode}.
- */
-function convertImageElement(domNode: Node): null | DOMConversionOutput {
-  if (domNode instanceof HTMLImageElement) {
-    const { alt: altText, src } = domNode;
-    const node: ImageNode = $applyNodeReplacement(
-      new ImageNode(src, altText, 500)
-    );
-    return { node };
-  }
-  return null;
 }
