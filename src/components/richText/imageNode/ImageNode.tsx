@@ -1,8 +1,5 @@
 import {
   $applyNodeReplacement,
-  DOMConversionMap,
-  DOMConversionOutput,
-  DOMExportOutput,
   EditorConfig,
   DecoratorNode,
   LexicalNode,
@@ -112,28 +109,6 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
   }
 
   /**
-   * Defines how this node is serialized to HTML.
-   */
-  exportDOM(): DOMExportOutput {
-    const element = document.createElement("img");
-    element.setAttribute("src", this.__src);
-    element.setAttribute("alt", this.__altText);
-    return { element };
-  }
-
-  /**
-   * Static constructor for creating an {@link ImageNode} from an HTML-serialized Node.
-   */
-  static importDOM(): DOMConversionMap | null {
-    return {
-      img: () => ({
-        conversion: convertImageElement,
-        priority: 0,
-      }),
-    };
-  }
-
-  /**
    * Inserts the {@link ImageNode}'s placeholder {@link HTMLElement} into the Lexical Dev's DOM.
    */
   createDOM(config: EditorConfig): HTMLElement {
@@ -174,18 +149,4 @@ export function $isImageNode(
   node: LexicalNode | null | undefined
 ): node is ImageNode {
   return node instanceof ImageNode;
-}
-
-/**
- * Converts an {@link HTMLImageElement} into an {@link ImageNode}.
- */
-function convertImageElement(domNode: Node): null | DOMConversionOutput {
-  if (domNode instanceof HTMLImageElement) {
-    const { alt: altText, src } = domNode;
-    const node: ImageNode = $applyNodeReplacement(
-      new ImageNode(src, altText, 500)
-    );
-    return { node };
-  }
-  return null;
 }

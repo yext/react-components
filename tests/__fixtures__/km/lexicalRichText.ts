@@ -21,6 +21,15 @@ export const LEXICAL_RICH_TEXT_SERIALIZED_AST = {
         tag: "h1",
       },
       {
+        altText: "Pink flowers",
+        height: 0,
+        maxWidth: 500,
+        src: "https://images.pexels.com/photos/5656637/pexels-photo-5656637.jpeg?auto=compress&cs=tinysrgb&w=200",
+        type: "image",
+        version: 1,
+        width: 0,
+      },
+      {
         children: [
           {
             detail: 0,
