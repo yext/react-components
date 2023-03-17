@@ -1,6 +1,22 @@
 import { EditorThemeClasses } from "lexical";
 
 /**
+ * Tailwind styling for the different Tokens that can occur within a Code Block.
+ * Token Types come from the PrismJS library, which Lexical uses to power Code Blocks.
+ * The Types include Comment, Variable, Operator, etc.
+ */
+const stylesToTokenTypes = {
+  "text-sky-700": ['atrule', 'attr', 'keyword'],
+  "text-pink-800": ['boolean', 'constant', 'deleted', 'number', 'property', 'symbol', 'tag'],
+  "text-slate-500": ['cdata', 'comment', 'doctype', 'prolog'],
+  "text-rose-500": ['class', 'function'],
+  "text-lime-600": ['builtin', 'char', 'inserted', 'selector', 'string'],
+  "text-amber-500": ['important', 'namespace', 'regex', 'variable'],
+  "text-yellow-700": ['entity', 'operator', 'url'],
+  "text-neutral-400": ['punctuation']
+};
+
+/**
  * Default styling to apply to the different types of Lexical Rich Text
  * Elements.
  */
@@ -23,6 +39,12 @@ const DefaultNodeStyling: EditorThemeClasses = {
     ol: "p-0 m-0 ml-4, list-decimal",
     listitem: "mx-8 my-2",
   },
+  code: "bg-gray-100 block text-xs m-0 mt-2 mb-2 overflow-x-auto relative p-2",
+  codeHighlight: Object.fromEntries(
+    Object.entries(stylesToTokenTypes).flatMap(
+      ([style, tokenTypes]) => tokenTypes.map(type => [type, style])
+    )
+  ),
   quote: "m-0 ml-5 text-sm text-gray-500 border-l-4 pl-4",
   table: "w-11/12 max-w-full overflow-y-scroll my-7",
   tableCellHeader: "bg-gray-200 text-start",
