@@ -27,11 +27,19 @@
     "prettier-check": "prettier --check ."
   },
   "dependencies": {
-    "mapbox-gl": "^2.11.0",
     "react-markdown": "^8.0.5",
     "rehype-raw": "^6.1.1",
     "rehype-sanitize": "^5.0.1",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "@lexical/code": "^0.8.0",
+    "@lexical/hashtag": "^0.8.0",
+    "@lexical/link": "^0.8.0",
+    "@lexical/list": "^0.8.0",
+    "@lexical/react": "^0.8.0",
+    "@lexical/rich-text": "^0.8.0",
+    "@lexical/table": "^0.8.0",
+    "lexical": "^0.8.0",
+    "mapbox-gl": "^2.11.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
@@ -84,7 +92,8 @@
     "collectCoverageFrom": [
       "src/**",
       "!src/components/Address/i18n.ts",
-      "!src/components/Markdown.tsx"
+      "!src/components/Markdown.tsx",
+      "!src/components/richText/**/*.ts?(x)"
     ],
     "moduleFileExtensions": [
       "js",
