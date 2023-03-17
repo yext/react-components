@@ -6,14 +6,22 @@ import { EditorThemeClasses } from "lexical";
  * The Types include Comment, Variable, Operator, etc.
  */
 const stylesToTokenTypes = {
-  "text-sky-700": ['atrule', 'attr', 'keyword'],
-  "text-pink-800": ['boolean', 'constant', 'deleted', 'number', 'property', 'symbol', 'tag'],
-  "text-slate-500": ['cdata', 'comment', 'doctype', 'prolog'],
-  "text-rose-500": ['class', 'function'],
-  "text-lime-600": ['builtin', 'char', 'inserted', 'selector', 'string'],
-  "text-amber-500": ['important', 'namespace', 'regex', 'variable'],
-  "text-yellow-700": ['entity', 'operator', 'url'],
-  "text-neutral-400": ['punctuation']
+  "text-sky-700": ["atrule", "attr", "keyword"],
+  "text-pink-800": [
+    "boolean",
+    "constant",
+    "deleted",
+    "number",
+    "property",
+    "symbol",
+    "tag",
+  ],
+  "text-slate-500": ["cdata", "comment", "doctype", "prolog"],
+  "text-rose-500": ["class", "function"],
+  "text-lime-600": ["builtin", "char", "inserted", "selector", "string"],
+  "text-amber-500": ["important", "namespace", "regex", "variable"],
+  "text-yellow-700": ["entity", "operator", "url"],
+  "text-neutral-400": ["punctuation"],
 };
 
 /**
@@ -26,13 +34,13 @@ const DefaultNodeStyling: EditorThemeClasses = {
   heading: {
     h1: "text-2xl font-normal m-0 mb-3 p-0",
     h2: "text-sm text-gray-600 font-bold m-0 mt-2 p-0 uppercase",
-    h3: "text-xs m-0 uppercase font-bold"
+    h3: "text-xs m-0 uppercase font-bold",
   },
   text: {
     code: "bg-slate-200 p-0.5",
     underline: "underline",
     strikethrough: "line-through",
-    underlineStrikethrough: "[text-decoration:underline_line-through]"
+    underlineStrikethrough: "[text-decoration:underline_line-through]",
   },
   list: {
     ul: "p-0 m-0 ml-4 list-disc",
@@ -41,8 +49,8 @@ const DefaultNodeStyling: EditorThemeClasses = {
   },
   code: "bg-gray-100 block text-xs m-0 mt-2 mb-2 overflow-x-auto relative p-2",
   codeHighlight: Object.fromEntries(
-    Object.entries(stylesToTokenTypes).flatMap(
-      ([style, tokenTypes]) => tokenTypes.map(type => [type, style])
+    Object.entries(stylesToTokenTypes).flatMap(([style, tokenTypes]) =>
+      tokenTypes.map((type) => [type, style])
     )
   ),
   quote: "m-0 ml-5 text-sm text-gray-500 border-l-4 pl-4",
