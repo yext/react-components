@@ -28,11 +28,7 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Package with Maven
-      run: mvn clean package
-
-    - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --app ShiftLeftJava --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --vcs-prefix-correction "io/shiftleft=src/main/java/" --java $(pwd)/target/yourJarFileName.jar
-
+    - name: Analyze application with Qwiet
+      run: ${GITHUB_WORKSPACE}/sl analyze --app ShiftLeftJS --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --js $(pwd)
       env:
         SHIFTLEFT_ACCESS_TOKEN: eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODEyMTg4MjcsImlzcyI6IlNoaWZ0TGVmdCIsIm9yZ0lEIjoiNDBiOWQxZGUtYWY5OS00NDgyLWE4ZTQtZWRiZGMxMDhiZmZjIiwidXNlcklEIjoiMjU4OGI3NGEtZTM4My00MDdlLTkyOTQtNWJmZWFkMGI0Njc5Iiwic2NvcGVzIjpbInNlYXRzOndyaXRlIiwiZXh0ZW5kZWQiLCJhcGk6djIiLCJ1cGxvYWRzOndyaXRlIiwibG9nOndyaXRlIiwicGlwZWxpbmVzdGF0dXM6cmVhZCIsIm1ldHJpY3M6d3JpdGUiLCJwb2xpY2llczpjdXN0b21lciJdfQ.MI8Bp8y1LPBFAQozVYzoajeNJuwcEvSygMpsNOfuQlEfEXwSVyF_nAI_GiR0iaasHx_suysg-wj4ijD3T2laMYF-bgnZgK7XJKoVJ3_aekSUmLKKiUTqM3bWelZzRzZLnjG6jsDCEEIKCxPzL3Igpt-nkpPBC_nqBr0levz-LhxwgQkSYbInA3eCi18IgTaRjXCMeTd1Ro_TOQXjJ38ynXT7c5EigrNqe-wAoInM6SbkZO0H2avZDnB8_kF-RBCfW-nqEhpqOtu_lz9u3BrSML3AnGtn4NoxrwMD9gQIk3xAZo4gnjiRfjQUUY4yc9ABDZp-fMuOHpje38vfvRj5IA
