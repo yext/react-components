@@ -1,9 +1,10 @@
 {
   "name": "@yext/react-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "author": "slapshot@yext.com",
   "types": "./lib/esm/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./lib/esm/index.js",
