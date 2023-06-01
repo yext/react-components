@@ -7,6 +7,7 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 import { ListItemNode, ListNode } from "@lexical/list";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
@@ -43,6 +44,7 @@ export function LexicalRichText({
         ErrorBoundary={LexicalErrorBoundary}
         placeholder={<div></div>}
       />
+      <ListPlugin />
     </LexicalComposer>
   );
 }
