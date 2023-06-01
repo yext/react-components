@@ -17,7 +17,7 @@ const meta: ComponentMeta<typeof MapboxMap> = {
       control: false,
     },
   },
-  parameters: { layout: "fullscreen", percy: { enableJavascript: true } },
+  parameters: { layout: "fullscreen" },
   decorators: [
     (Story) => (
       <div style={{ height: "100vh" }}>
