@@ -45,8 +45,24 @@ const DefaultNodeStyling: EditorThemeClasses = {
   list: {
     ul: "p-0 m-0 ml-4 list-disc",
     ol: "p-0 m-0 ml-4, list-decimal",
-    listitem: "mx-8 my-2",
+    listitem: "mx-8 my-0",
+    nested: {
+      listitem: "list-none",
+    },
+    olDepth: [
+      "p-0 m-0 ml-4 list-decimal list-inside",
+      "p-0 m-0 ml-4 list-upper_alpha list-inside",
+      "p-0 m-0 ml-4 list-lower_alpha list-inside",
+      "p-0 m-0 ml-4 list-upper_roman list-inside",
+      "p-0 m-0 ml-4 list-lower_roman list-inside",
+    ],
+    ulDepth: [
+      "p-0 m-0 ml-4 list-disc list-inside",
+      "p-0 m-0 ml-4 list-square list-inside",
+      "p-0 m-0 ml-4 list-circle list-inside",
+    ],
   },
+  ltr: "text-left",
   code: "bg-gray-100 block text-xs m-0 mt-2 mb-2 overflow-x-auto relative p-2",
   codeHighlight: Object.fromEntries(
     Object.entries(stylesToTokenTypes).flatMap(([style, tokenTypes]) =>
