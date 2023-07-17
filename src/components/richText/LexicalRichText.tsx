@@ -11,7 +11,7 @@ import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
-import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
+import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HashtagNode } from "@lexical/hashtag";
 import { EditorThemeClasses } from "lexical";
 import DefaultNodeStyling from "./DefaultStyling";
@@ -80,7 +80,7 @@ function generateConfig(
       TableRowNode,
       AutoLinkNode,
       LinkNode,
-      HorizontalRuleNode
+      HorizontalRuleNode,
     ],
   };
 }
