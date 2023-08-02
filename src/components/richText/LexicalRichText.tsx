@@ -16,6 +16,7 @@ import { HashtagNode } from "@lexical/hashtag";
 import { EditorThemeClasses } from "lexical";
 import DefaultNodeStyling from "./DefaultStyling";
 import { ImageNode } from "./imageNode";
+import { EmbeddedKeyNode } from "./embeddedKeyNode";
 
 /**
  * The shape of data passed to {@link LexicalRichText}.
@@ -81,6 +82,7 @@ function generateConfig(
       AutoLinkNode,
       LinkNode,
       HorizontalRuleNode,
+      EmbeddedKeyNode
     ],
   };
 }
