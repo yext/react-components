@@ -82,7 +82,7 @@ function generateConfig(
       AutoLinkNode,
       LinkNode,
       HorizontalRuleNode,
-      EmbeddedKeyNode
+      EmbeddedKeyNode,
     ],
   };
 }
