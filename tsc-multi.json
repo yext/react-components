@@ -1,0 +1,7 @@
+{
+  "targets": [
+    { "extname": ".cjs", "module": "commonjs", "outDir": "lib/commonjs" },
+    { "extname": ".js", "module": "ESNext", "outDir": "lib/esm" }
+  ],
+  "projects": ["tsconfig.json"]
+}
