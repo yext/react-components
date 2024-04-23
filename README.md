@@ -1,3 +1,8 @@
+# This repository has been deprecated.
+Please use https://github.com/yext/js/tree/main/packages/pages-components instead.
+
+NPM - http://www.npmjs.com/package/@yext/pages-components
+
 # react-components
 
 <div>
